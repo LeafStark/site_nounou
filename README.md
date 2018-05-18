@@ -1,2 +1,2 @@
 # site_nounou
-The project created by Ye&amp;Du with HTML/CSS,javascript,php,MySQL.
+The project created by YE&amp;DU using HTML/CSS,JavaScript,PHP,MySQL.
