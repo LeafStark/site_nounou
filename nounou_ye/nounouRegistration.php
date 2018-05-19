@@ -9,9 +9,9 @@
     </head>
     <body>
        
-        <form>
+        <form method="post" action="getNounouRegistration.php">
 Login(Email):<br />
-<input type="email" name="login">
+<input type="email" name="email">
 <br />
 Mot de passe:<br />
 <input type="password" name="mot"><br />
@@ -25,6 +25,9 @@ Prenom:
 Age:
 <br />
 <input type="text" name="age">
+<br />
+Ville:<br />
+<input type="text" name="ville">
 <br />
 Portable:<br />
 <input type="tel" name="portable">
