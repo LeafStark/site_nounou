@@ -27,6 +27,9 @@ Age:
 Portable:<br />
 <input type="tel" name="portable">
 <br />
+Photo:<br />
+<input type="file" name="photo">
+<br />
 Experience:<br />
 <textarea name="experience" row="10" cols="30" ></textarea>
 <br />
