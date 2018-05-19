@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-18 13:59:17
+-- Generation Time: 2018-05-19 16:19:46
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -46,13 +46,11 @@ CREATE TABLE IF NOT EXISTS `compte` (
 
 DROP TABLE IF EXISTS `enfant`;
 CREATE TABLE IF NOT EXISTS `enfant` (
-  `ID_E` int(10) NOT NULL,
-  `NSS_E` int(20) NOT NULL,
   `Prenom` varchar(20) NOT NULL,
   `Date_Naissance` date NOT NULL,
   `Restriction` text NOT NULL,
   `parent` int(11) NOT NULL,
-  PRIMARY KEY (`ID_E`),
+  PRIMARY KEY (`Prenom`,`parent`),
   KEY `parent` (`parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,22 +88,11 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 DROP TABLE IF EXISTS `parents`;
 CREATE TABLE IF NOT EXISTS `parents` (
   `ID_P` int(11) NOT NULL,
-  `NSS_P` int(20) NOT NULL,
   `Nom_F` varchar(20) NOT NULL,
   `Email` varchar(20) NOT NULL,
   `Information` text NOT NULL,
   PRIMARY KEY (`ID_P`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- 限制导出的表
---
-
---
--- 限制表 `enfant`
---
-ALTER TABLE `enfant`
-  ADD CONSTRAINT `enfant_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `parents` (`ID_P`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
