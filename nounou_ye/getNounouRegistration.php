@@ -1,48 +1,39 @@
 <?php
-require ("connexion.php");
-session_start();
-$email = mysqli_real_escape_string($con,$_POST['email']);
-$paasword = md5(mysqli_real_escape_string($con,$_POST['mot']));
-$nom = mysqli_real_escape_string($con,$_POST['nom']);
-$prenom = mysqli_real_escape_string($con,$_POST['nom']);
-$age = mysqli_real_escape_string($con,$_POST['age']);
-$ville = mysqli_real_escape_string($con,$_POST['ville']);
-$portable = mysqli_real_escape_string($con,$_POST['portable']);
-$experience = mysqli_real_escape_string($con,$_POST['experience']);
-$presentation = mysqli_real_escape_string($con,$_POST['presentation']);
+require_once"pdo.php";
+require_once 'max_id.php';
+require_once 'getPhoto.php';
+$requet="select * from nounou";
+    $resultats=$dbh ->query($requet);
+     while ($row=$resultats->fetch()){
+        echo "<pre>";
+        print_r ($row);
+     echo "</pre>";}
+$id=table_max_id($dbh,'nounou','ID_N');
+$email = $_POST['email'];
+$paasword =$_POST['mot'];
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$age = $_POST['age'];
+$ville = $_POST['ville'];
+$portable = $_POST['portable'];
+$experience =$_POST['experience'];
+$presentation = $_POST['presentation'];
+echo $id.'<br/>';
+echo $nom.'<br/>';
+echo $prenom."<br/>";
+echo $ville."<br/>";
+echo $email."<br />";
+echo $portable."<br />";
+echo $age."<br />";
+echo $experience."<br />";
+echo $presentation;
 
-$target_dir = "documents/";
-$target_file = $target_dir . basename($_FILES["photo"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// 检查是否为图片
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["photo"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
-    } else {
-        echo "Le fichier n'est pas une image.";
-        $uploadOk = 0;
-    }
+  // $nounouQuery = "insert into nounou(ID_N,Nom,Prenom,Ville,Email,Portable,age,experience,presentation) values ('$id','$nom','$prenom',$ville','$email','$portable','$age','$experience','$presentation')";
+try{$nounouQuery = "INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`) VALUES ('$id', '$nom', '$prenom', '$ville', '$email', '$portable', '', 33, '33', '33', '11', '22');";
+$dbh->exec($nounouQuery);
+echo 1;
 }
-// 检查格式
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Désolé , seulement  JPG, JPEG, PNG & GIF files sont autorisés à téléchargés.";
-    $uploadOk = 0;echo "<br />";
+  catch (PDOException $e) {
+    die ("Error!: " . $e->getMessage() . "<br/>");
 }
-// 检查 $uploadOk 是否为0
-if ($uploadOk == 0) {
-    echo "Désolé, votre photo n'est pas télécharger .";echo "<br />";
-// 上传
-} else {
-    if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-       
-    } else {
-        echo "Désolé , une erreur s'est produite lors du téléchargement de votre fichier.";echo "<br />";
-    }
-    }
-
-$duplicate_email_query = "select * from nounou where Email='$email'";
-$duplicate_email_result = mysqli_query($con, $duplicate_email_query) or die(mysqli_error($con));
-$rows = mysqli_affected_rows($duplicate_email_result);
+   echo("Votre compte a déjà inscrit.");

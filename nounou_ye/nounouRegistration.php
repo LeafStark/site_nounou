@@ -9,7 +9,7 @@
     </head>
     <body>
        
-        <form method="post" action="getNounouRegistration.php">
+        <form method="post" action="getNounouRegistration.php" enctype="multipart/form-data">
 Login(Email):<br />
 <input type="email" name="email">
 <br />
@@ -24,7 +24,7 @@ Prenom:
 <br />
 Age:
 <br />
-<input type="text" name="age">
+<input type="number" name="age">
 <br />
 Ville:<br />
 <input type="text" name="ville">
