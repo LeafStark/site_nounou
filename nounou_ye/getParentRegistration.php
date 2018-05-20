@@ -55,11 +55,12 @@ if ($rows != 0) {
 
 } else {*/
     try {
-        $parentQuery = "insert into parents(ID_P,Nom_F,Ville,Email,Information) values ('$id_p',$nom','$ville','$email','$infoGene')";
+        $parentQuery = "INSERT INTO  `parents`(ID_P,Nom_F,Ville,Email,Information) values ('$id_p',$nom','$ville','$email','$infoGene')";
+       
         $dbh->exec($parentQuery);
        // return 1;
     } catch (Exception $ex) {
         die("Il y un erreur!" . $ex->getMessage());
     }
-
+    echo '1';
 ?>
