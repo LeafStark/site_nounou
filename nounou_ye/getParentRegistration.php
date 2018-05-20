@@ -55,7 +55,7 @@ if ($rows != 0) {
 
 } else {*/
     try {
-        $parentQuery = "INSERT INTO  `parents`(ID_P,Nom_F,Ville,Email,Information) values ('$id_p',$nom','$ville','$email','$infoGene')";
+        $parentQuery = "INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene');";
        
         $dbh->exec($parentQuery);
        // return 1;

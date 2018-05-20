@@ -10,6 +10,8 @@ and open the template in the editor.
         <title></title>
         <script lang="javascript" type="text/javascript" src="addText.js"></script>
         <script lang="javascript" type="text/javascript" src="deleteText.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="getEnfant.js"></script>
     </head>
     <body>
         <form method="post" action="getParentRegistration.php">
@@ -30,7 +32,7 @@ and open the template in the editor.
              </div>
             <input type="submit" value="S'inscrire">
         </form>
-        <form method="post" action="getEnfantRegistration.php">
+        <form method="post" action="getEnfant.php">
             <h2>Ajoute enfant(s)</h2>
             <table>
                 <tr>
@@ -40,7 +42,7 @@ and open the template in the editor.
                                 <td id="td1">
                                     <input type="text" name="prenomEnfant" placeholder="Préom d'enfant" required="true">
                                 </td>
-                                <td id="2">
+                                <td id="td2">
                                     <input type="date" name="dateNaissance" placeholder="Date de naissance" required="true">
                                 </td>
                                 <td id="td3">
@@ -54,10 +56,12 @@ and open the template in the editor.
                     <td>
                         <input type="button" onclick="addText()" value="Ajouter">
                         <input type="button" onclick="deleteText()" value="Supprimer">
+                        <button>Confirmer</button>
                     </td>
                 </tr>
             </table>
         </form>
+        
         <?php
         // put your code here
         ?>
