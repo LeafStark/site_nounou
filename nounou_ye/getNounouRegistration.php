@@ -29,11 +29,14 @@ echo $experience."<br />";
 echo $presentation;
 
   // $nounouQuery = "insert into nounou(ID_N,Nom,Prenom,Ville,Email,Portable,age,experience,presentation) values ('$id','$nom','$prenom',$ville','$email','$portable','$age','$experience','$presentation')";
-try{$nounouQuery = "INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`) VALUES ('$id', '$nom', '$prenom', '$ville', '$email', '$portable', '', $age, '33', '33', '11', '22');";
+
+try{$nounouQuery = "INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`,`Langue`, `Age`, `Experience`, `Presentation`,`Evaluation`,`Salaire`) VALUES ('$id', '$nom', '$prenom', '$ville', '$email', '$portable','', $age, '$experience', '$presentation',0,0);";
+
 $dbh->exec($nounouQuery);
 echo 1;
 }
   catch (PDOException $e) {
     die ("Error!: " . $e->getMessage() . "<br/>");
 }
+$dbh=null;
    echo("Votre compte a déjà inscrit.");
