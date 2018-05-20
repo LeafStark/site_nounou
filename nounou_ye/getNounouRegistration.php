@@ -1,5 +1,5 @@
 <?php
-require_once"pdo.php";
+require_once"pdoConnexion.php";
 require_once 'max_id.php';
 require_once 'getPhoto.php';
 $requet="select * from nounou";
