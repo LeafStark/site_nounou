@@ -11,26 +11,26 @@
        
         <form method="post" action="getNounouRegistration.php" enctype="multipart/form-data">
 Login(Email):<br />
-<input type="email" name="email">
+<input type="email" name="email" required="true">
 <br />
 Mot de passe:<br />
-<input type="password" name="mot"><br />
+<input type="password" name="mot" required="true"><br />
 Nom:<br>
-<input type="text" name="nom">
+<input type="text" name="nom" required="true">
 <br />
 Prenom:
 <br />
-<input type="text" name="prenom">
+<input type="text" name="prenom" required="true">
 <br />
 Age:
 <br />
 <input type="number" name="age">
 <br />
 Ville:<br />
-<input type="text" name="ville">
+<input type="text" name="ville" required="true">
 <br />
 Portable:<br />
-<input type="tel" name="portable">
+<input type="tel" name="portable" required="true">
 <br />
 Langue:<br/>
 <table>
