@@ -56,7 +56,12 @@ if ($rows != 0) {
 } else {*/
     try {
         $parentQuery = "INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene');";
+
       
+
+       $compteQuery="INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
+       $dbh->exec($compteQuery);
+
         $dbh->exec($parentQuery);
        // return 1;
     } catch (Exception $ex) {

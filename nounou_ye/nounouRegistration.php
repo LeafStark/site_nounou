@@ -30,28 +30,10 @@ Ville:<br />
 <input type="text" name="ville" required="true">
 <br />
 Portable:<br />
-<input type="tel" name="portable" required="true">
+<input type="tel" name="portable" required="true    ">
 <br />
 Langue:<br/>
-<table>
-                <tr>
-                    <td>
-                        <table id='ajouteLangue'>
-                            <tr>
-                                <td>
-                                    <input type="text" name="Langue" placeholder="Langue" required="true">
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" onclick="addText()" value="Ajouter">
-                        <input type="button" onclick="deleteText()" value="Supprimer">
-                    </td>
-                </tr>
-            </table>
+<input type='text' name='langue' required="true">
 Photo:<br />
 <input type="file" name="photo">
 <br />
