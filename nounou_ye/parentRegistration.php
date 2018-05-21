@@ -11,7 +11,7 @@ and open the template in the editor.
         <script lang="javascript" type="text/javascript" src="addText.js"></script>
         <script lang="javascript" type="text/javascript" src="deleteText.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="getEnfant.js"></script>
+        <script src="getenant.js"></script>
     </head>
     <body>
         <form method="post" action="getParentRegistration.php">
