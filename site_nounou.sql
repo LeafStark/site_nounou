@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-21 15:18:45
+-- Generation Time: 2018-05-21 16:24:22
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,37 @@ SET time_zone = "+00:00";
 --
 -- Database: `site_nounou`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `compte`
+--
+
+DROP TABLE IF EXISTS `compte`;
+CREATE TABLE IF NOT EXISTS `compte` (
+  `login` varchar(20) NOT NULL,
+  `mot_de_passe` varchar(20) NOT NULL,
+  `status` int(1) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  PRIMARY KEY (`login`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `enfant`
+--
+
+DROP TABLE IF EXISTS `enfant`;
+CREATE TABLE IF NOT EXISTS `enfant` (
+  `Prenom` varchar(20) NOT NULL,
+  `Date_Naissance` date NOT NULL,
+  `Restriction` text NOT NULL,
+  `parent` int(11) NOT NULL,
+  PRIMARY KEY (`Prenom`,`parent`),
+  KEY `parent` (`parent`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -57,6 +88,37 @@ INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `La
 (5, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0),
 (6, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0),
 (7, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `parents`
+--
+
+DROP TABLE IF EXISTS `parents`;
+CREATE TABLE IF NOT EXISTS `parents` (
+  `ID_P` int(8) NOT NULL,
+  `Nom_F` varchar(20) NOT NULL,
+  `Ville` varchar(30) NOT NULL,
+  `Email` varchar(20) NOT NULL,
+  `Information` text NOT NULL,
+  PRIMARY KEY (`ID_P`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `parents`
+--
+
+INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
+(0, 'DU', 'Troyes', 'qiaoqian@utt.fr', 'Parle Chinois'),
+(1, 'Ye', 'Troyes', 'ye@utt.fr', 'Parle chinois et anglais'),
+(2, 'ok', 'Troyes', 'ok@utt.fr', 'Parle anglais'),
+(3, 'Jo', 'Troyes', 'jo@qq.com', 'non'),
+(4, 'ye', 'st', '695549485@qq.com', 'aaa'),
+(5, 'ye', 'xingyu', '695549485@qq.com', 'aaaaa'),
+(6, 'ye', 'st', '695549485@qq.com', 'aaa'),
+(7, 'ye', 's', '695549485@qq.com', '123123'),
+(8, 'ye', 's', '695549485@qq.com', '123123');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
