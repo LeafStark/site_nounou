@@ -32,36 +32,7 @@ and open the template in the editor.
              </div>
             <input type="submit" value="S'inscrire">
         </form>
-        <form method="post" action="getEnfant.php">
-            <h2>Ajoute enfant(s)</h2>
-            <table>
-                <tr>
-                    <td>
-                        <table id='ajouteEnfant'>
-                            <tr>
-                                <td id="td1">
-                                    <input type="text" name="prenomEnfant" placeholder="Préom d'enfant" required="true">
-                                </td>
-                                <td id="td2">
-                                    <input type="date" name="dateNaissance" placeholder="Date de naissance" required="true">
-                                </td>
-                                <td id="td3">
-                                    <input type="text" name="restriction" placeholder="Restriction Alimentaire" required="true">
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="button" onclick="addText()" value="Ajouter">
-                        <input type="button" onclick="deleteText()" value="Supprimer">
-                        <button>Confirmer</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        
+       
         <?php
         // put your code here
         ?>

@@ -4,15 +4,14 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-    <?php
-        // put your code here
-        ?>
+ 
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Site NOUNOU</title>
     </head>
     <body>
+        <form method="post" action="loginTraitement.php">
         <div class="panel-heading">
             <h3>Login</h3>
         </div>  
@@ -27,5 +26,6 @@ and open the template in the editor.
                 <input type="submit" value="Login">
             </div>
         </div>
+        </form>
     </body>
 </html>
