@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-20 18:23:58
+-- Generation Time: 2018-05-21 14:47:47
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -30,11 +30,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `compte`;
 CREATE TABLE IF NOT EXISTS `compte` (
+  `ID_C` int(10) NOT NULL,
   `login` varchar(20) NOT NULL,
   `mot_de_passe` varchar(20) NOT NULL,
   `status` int(1) NOT NULL,
-  `role` text NOT NULL,
-  PRIMARY KEY (`login`)
+  PRIMARY KEY (`ID_C`),
+  KEY `login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -76,6 +77,16 @@ CREATE TABLE IF NOT EXISTS `nounou` (
   PRIMARY KEY (`ID_N`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- 转存表中的数据 `nounou`
+--
+
+INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`) VALUES
+(1, 'ye', 'xingyu', 'st', '695549485@qq.com', 767158560, '', 33, '33', '33', 33, 33333),
+(2, 'ye', 'xingyu', 'st', '695549485@qq.com', 767158560, '', 33, '33', '33', 33, 33333),
+(3, 'ye', 'xingyu', 'st', '695549485@qq.com', 767158560, '', 33, '33', '33', 11, 22),
+(4, 'DU', 'Qiaoqian', 'Troyes', 'qiao@utt.fr', 785412674, '', 33, '33', '33', 11, 22);
+
 -- --------------------------------------------------------
 
 --
@@ -84,12 +95,23 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 
 DROP TABLE IF EXISTS `parents`;
 CREATE TABLE IF NOT EXISTS `parents` (
-  `ID_P` int(11) NOT NULL,
+  `ID_P` int(8) NOT NULL,
   `Nom_F` varchar(20) NOT NULL,
+  `Ville` varchar(30) NOT NULL,
   `Email` varchar(20) NOT NULL,
   `Information` text NOT NULL,
   PRIMARY KEY (`ID_P`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `parents`
+--
+
+INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
+(0, 'DU', 'Troyes', 'qiaoqian@utt.fr', 'Parle Chinois'),
+(1, 'Ye', 'Troyes', 'ye@utt.fr', 'Parle chinois et anglais'),
+(2, 'ok', 'Troyes', 'ok@utt.fr', 'Parle anglais'),
+(3, 'Jo', 'Troyes', 'jo@qq.com', 'non');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
