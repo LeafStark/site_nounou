@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-21 17:56:42
+-- Generation Time: 2018-05-22 07:52:08
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -36,6 +36,16 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `role` varchar(20) NOT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `compte`
+--
+
+INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
+('dd1@qq.com', 'dd', 1, 'parent'),
+('dd@qq.com', 'dd', 1, 'parent'),
+('du1@qq.com', 'du1', 1, 'parents'),
+('Nounou1@utt.fr', 'nounou', 1, 'nounou');
 
 -- --------------------------------------------------------
 
@@ -87,7 +97,8 @@ INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `La
 (4, 'DU', 'Qiaoqian', 'Troyes', 'qiao@utt.fr', 785412674, '', 33, '33', '33', 11, 22),
 (5, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0),
 (6, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0),
-(7, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0);
+(7, 'ye', 'xingyu', 'sr', '695549485@qq.com', 767158560, 'æ³•å›½', 22, '', '', 0, 0),
+(8, 'Nouou1', 'NOU', 'Troyes', 'Nounou1@utt.fr', 11111111, 'chinois', 35, 'q', 'q', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -118,7 +129,11 @@ INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
 (5, 'ye', 'xingyu', '695549485@qq.com', 'aaaaa'),
 (6, 'ye', 'st', '695549485@qq.com', 'aaa'),
 (7, 'ye', 's', '695549485@qq.com', '123123'),
-(8, 'ye', 's', '695549485@qq.com', '123123');
+(8, 'ye', 's', '695549485@qq.com', '123123'),
+(9, 'Zhang', 'Xian', 'zhang@qq.com', 'cuisine bien'),
+(10, 'Zhang1', 'Xian', 'zhang@qq.com', 'cuisine bien'),
+(11, 'DU1', 'Troyes', 'du1@qq.com', 'cuisine'),
+(12, 'DU2', 'Troyes', 'du2@qq.com', 'cuisine');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

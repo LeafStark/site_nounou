@@ -57,13 +57,12 @@ echo ("$nom");
 
   } else { */
 try {
-    $parentQuery = "INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene');";
-
-    $compteQuery = "INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
-    $dbh->exec($compteQuery);
-
-    $dbh->exec($parentQuery);
+    $parentQuery ="INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene')";
+            //"INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene');";
+    $compteQuery_p ="INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
     
+    $dbh->exec($parentQuery);
+    $dbh->exec($compteQuery_p);
 } catch (Exception $ex) {
     die("Il y un erreur!" . $ex->getMessage());
 }
