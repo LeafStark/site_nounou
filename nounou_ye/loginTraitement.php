@@ -35,11 +35,6 @@ try {
             }
         }
     }
-    ?>
-    <script>
-        alert("mot");
-    </script>
-    <?php
 } catch (Exception $ex) {
     die($ex->getMessage());
 }

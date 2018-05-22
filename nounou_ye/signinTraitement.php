@@ -3,21 +3,25 @@
 session_start();
 require_once 'pdoConnexion.php';
 $email = $_POST['email'];
-$password = $_POST['motDePasse']; /*
-  $requet="SELECT * FROM `compte` where `login` = '$email'";
-  $resultats=$dbh ->query($requet);
-  while ($row=$resultats->fetch()){
-  echo "<pre>";
-  print_r ($row);
-  echo "</pre>";} */
-//if (($_POST['email'] != null) && ($_POST['motDePasse'] != null)) {
+$password = $_POST['motDePasse'];
+$sauvegarder = isset($_POST['sauvegarder']) ? 1 : 0;
 
-try {
+if (checkEmpty($email, $password)) {
+        if ($sauvegarder == 1) {
+            setcookie("eamil", $email, time() + 3600 * 24 * 3);
+            setcookie("password", $password, time() + 3600 * 24 * 3);
+        } else {
+            setcookie("username", "", time() - 1);   //如果没有选择自动登录就清空cookie  
+            setcookie("password", "", time() - 1);
+        }
+
     $requet = "SELECT * FROM `compte` where `login` = '$email'";
     $res = $dbh->query($requet);
-    //echo("$res");
-    while ($resultat = $res->fetch()) {
-        print_r($resultat);
+    /*while ($resultat = $res->fetch()) {
+        print_r($resultat);*/
+    $resultat = $res->fetchAll();
+    $rows = count($resultat);
+    if($rows!=0){
         if ($resultat['mot_de_passe'] == $password) {
             //echo '2';
             $_SESSION['email'] = $email;
@@ -35,12 +39,19 @@ try {
             }
         }
     }
-    ?>
-    <script>
-        alert("mot");
-    </script>
-    <?php
-} catch (Exception $ex) {
-    die($ex->getMessage());
+    else{
+             echo '<html><head><Script Language="JavaScript">alert("用户不存在");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";  
+        }
+    }
+
+
+function checkEmpty($mail, $pass) {
+    if($mail==null||$pass==null){  
+        echo '<html><head><Script Language="JavaScript">alert("用户名或密码为空");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=login.html\">";  
+    }  
+    else{
+        return true;  
+    }
 }
+
 ?>
