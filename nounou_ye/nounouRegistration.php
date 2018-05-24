@@ -34,6 +34,7 @@ Portable:<br />
 <br />
 Langue:<br/>
 <input type='text' name='langue' required="true">
+<br />
 Photo:<br />
 <input type="file" name="photo">
 <br />

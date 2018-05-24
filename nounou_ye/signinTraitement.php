@@ -15,14 +15,16 @@ if (checkEmpty($email, $password)) {
             setcookie("password", "", time() - 1);
         }
 
-    $requet = "SELECT * FROM `compte` where `login` = '$email'";
+    $requet = "SELECT * FROM `compte` where `login` = '$email';";
     $res = $dbh->query($requet);
     /*while ($resultat = $res->fetch()) {
         print_r($resultat);*/
     $resultat = $res->fetchAll();
     $rows = count($resultat);
     if($rows!=0){
-        if ($resultat['mot_de_passe'] == $password) {
+        for($i=0;$i<$rows;$i++){
+        
+        if ($resultat[$i]['mot_de_passe'] == $password) {
             //echo '2';
             $_SESSION['email'] = $email;
             $_SESSION['motDePasse'] = $password;
@@ -31,13 +33,17 @@ if (checkEmpty($email, $password)) {
             while ($res_s = $res_role->fetch()) {
                 print_r($res_s);
                 $_SESSION['type'] = $res_s['role'];
-                if ($_SESSION['type'] == "parents") {
+                echo 2;
+                if ($_SESSION['type'] == "parent") {
+                    echo 3;
                     header('Location:parent.php');
                 } elseif ($_SESSION['type'] == "nounou") {
+                    echo 4;
                     header('Location:nounou.php');
                 }
             }
         }
+    }
     }
     else{
              echo '<html><head><Script Language="JavaScript">alert("用户不存在");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";  
