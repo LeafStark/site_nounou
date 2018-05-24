@@ -41,7 +41,7 @@ $id_p = table_max_id($dbh, 'parents', 'ID_P');
 $nom = $_POST['nom'];
 $ville = $_POST['ville'];
 $email = $_POST['email'];
-$password = md5($_POST['motDePasse']);
+$password = $_POST['motDePasse'];
 $infoGene = $_POST['informationGenerale'];
 echo ("$nom");
 /*
@@ -58,7 +58,8 @@ echo ("$nom");
   } else { */
 try {
     $parentQuery ="INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES ('$id_p', '$nom', '$ville', '$email', '$infoGene')";
-    $compteQuery_p ="INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
+    $compteQuery_p= "INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
+  //  $compteQuery_p ="INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'parent');";
     $dbh->exec($parentQuery);
     $dbh->exec($compteQuery_p);
 } catch (Exception $ex) {

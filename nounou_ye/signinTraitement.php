@@ -16,11 +16,14 @@ if (checkEmpty($email, $password)) {
         }
 
     $requet = "SELECT * FROM `compte` where `login` = '$email'";
+    //$requet = "SELECT * FROM `compte` WHERE `mot_de_passe`=$password";
+
     $res = $dbh->query($requet);
     /*while ($resultat = $res->fetch()) {
         print_r($resultat);*/
     $resultat = $res->fetchAll();
     $rows = count($resultat);
+    //echo "$rows";
     if($rows!=0){
         if ($resultat['mot_de_passe'] == $password) {
             //echo '2';
@@ -42,7 +45,7 @@ if (checkEmpty($email, $password)) {
     else{
              echo '<html><head><Script Language="JavaScript">alert("用户不存在");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";  
         }
-    }
+  }
 
 
 function checkEmpty($mail, $pass) {
