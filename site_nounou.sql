@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-24 13:08:21
+-- Generation Time: 2018-05-24 13:48:10
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,75 @@ SET time_zone = "+00:00";
 --
 -- Database: `site_nounou`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `compte`
+--
+
+DROP TABLE IF EXISTS `compte`;
+CREATE TABLE IF NOT EXISTS `compte` (
+  `login` varchar(20) NOT NULL,
+  `mot_de_passe` varchar(20) NOT NULL,
+  `status` int(1) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  PRIMARY KEY (`login`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `compte`
+--
+
+INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
+('695549485@qq.com', 'password', 1, 'parent'),
+('xingyu.ye@utt.fr', 'password', 1, 'nounou');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `enfant`
+--
+
+DROP TABLE IF EXISTS `enfant`;
+CREATE TABLE IF NOT EXISTS `enfant` (
+  `Prenom` varchar(20) NOT NULL,
+  `Date_Naissance` date NOT NULL,
+  `Restriction` text NOT NULL,
+  `parent` int(11) NOT NULL,
+  PRIMARY KEY (`Prenom`,`parent`),
+  KEY `parent` (`parent`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `nounou`
+--
+
+DROP TABLE IF EXISTS `nounou`;
+CREATE TABLE IF NOT EXISTS `nounou` (
+  `ID_N` int(11) NOT NULL,
+  `Nom` varchar(20) NOT NULL,
+  `Prenom` varchar(20) NOT NULL,
+  `Ville` varchar(20) NOT NULL,
+  `Email` varchar(20) NOT NULL,
+  `Portable` int(10) NOT NULL,
+  `Langue` varchar(100) NOT NULL,
+  `Age` int(2) NOT NULL,
+  `Experience` text NOT NULL,
+  `Presentation` text NOT NULL,
+  `Evaluation` float NOT NULL,
+  `Salaire` int(10) NOT NULL,
+  PRIMARY KEY (`ID_N`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `nounou`
+--
+
+INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`) VALUES
+(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'chinois', 22, '', '', 0, 0);
 
 -- --------------------------------------------------------
 
