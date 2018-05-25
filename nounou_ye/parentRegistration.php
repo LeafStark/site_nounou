@@ -28,7 +28,7 @@ and open the template in the editor.
                 <input type="password" name="motDePasse" placeholder="Mot de passe" required="true">
             </div>
              <div class="form-group">
-                <input type="text"  name="informationGenerale" placeholder="Information Générale" required="true">
+                 <textarea  name="informationGenerale" placeholder="Information Générale" required="true" rows="5" cols="30"></textarea>
              </div>
             <input type="submit" value="S'inscrire">
         </form>

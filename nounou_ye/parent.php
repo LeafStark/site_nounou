@@ -6,11 +6,8 @@ $email = $_SESSION['email'];
 $requet = "select * from parents where Email = '$email'";
 $resultats = $dbh->query($requet);
 while ($row = $resultats->fetch()) {
-    echo "<pre>";
-    print_r($row);
-    echo "</pre>";
+    include_once 'parentCherche.php';
 }
-
 echo "$email";
 echo("parent 的页面");
 ?>
