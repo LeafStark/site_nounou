@@ -8,7 +8,7 @@ $pass='';          //对应的密码
 $dsn="$dbms:host=$host;dbname=$dbName";
 try {
     $dbh = new PDO($dsn, $user, $pass); //初始化一个PDO对象
-    echo '1';
+   // echo '1';
 } catch (PDOException $e) {
     die ("Error!: " . $e->getMessage() . "<br/>");
 }

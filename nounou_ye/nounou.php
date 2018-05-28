@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,11 +6,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        require_once 'pdoConnexion.php';
         session_start();
-$email = $_SESSION['email'];
-echo "$email";
-echo("nounou 的页面");
+        $email = $_SESSION['email'];
+        $requet = "SELECT * FROM `nounou` where `Email`='$email';";
+        $res = $dbh->query($requet);
+        $resultat = $res->fetch();
+        echo $resultat["Prenom"] . " " . $resultat['Nom'];
+        echo("的页面");
         ?>
+        <a href="nounoucherche.php">Informations</a>
     </body>
 </html>

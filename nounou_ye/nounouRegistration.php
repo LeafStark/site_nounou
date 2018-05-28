@@ -5,11 +5,11 @@
         <title>site_nounou</title>
         <script lang="javascript" type="text/javascript" src="addLanguage.js"></script>
         <script lang="javascript" type="text/javascript" src="deleteLanguage.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="css/bootstrap.min.css" rel="stylesheet">        
     </head>
     <body>
-       
-        <form method="post" action="getNounouRegistration.php" enctype="multipart/form-data">
+     
+        <form method="post" action="sauveParentSelection.php" >
 Login(Email):<br />
 <input type="email" name="email" required="true">
 <br />
@@ -35,17 +35,7 @@ Portable:<br />
 Langue:<br/>
 <input type='text' name='langue' required="true">
 <br />
-Photo:<br />
-<input type="file" name="photo">
-<br />
-Experience:<br />
-<textarea name="experience" row="10" cols="30" ></textarea>
-<br />
-Presentation:<br />
-<textarea name="presentation" row="10" cols="30" ></textarea>
-<br/>
 <input type="submit" value="S'inscrire">
         </form>
-        
     </body>
 </html>
