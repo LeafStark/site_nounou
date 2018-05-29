@@ -1,8 +1,5 @@
-var nbEnfants = document.getElementById("enfants").value;
-function echoEnfant(){
-    for(var i =1;i<=nbEnfants;i++){
-        echo("<div>");
-        echo("<input type='text' name='prenom'");
-        echo("</div");
+function addEnfant(){
+    var input = document.getElementById('addEnfant');
+    alert("a");
+    input.write("<input type='text'>");
     }
-}
