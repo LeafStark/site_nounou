@@ -9,7 +9,7 @@
     </head>
     <body>
      
-        <form method="post" action="sauveParentSelection.php" >
+        <form method="post" action="getNounouRegistration.php" >
 Login(Email):<br />
 <input type="email" name="email" required="true">
 <br />

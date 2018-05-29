@@ -43,6 +43,10 @@ if (checkEmpty($email, $password)) {
                     echo 4;
                     header('Location:nounou.php');
                 }
+                elseif ($_SESSION['type'] == "administrateur") {
+                    echo 4;
+                    header('Location:administrateur.php');
+                }
             }
         }
     }
