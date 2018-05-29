@@ -3,15 +3,17 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+问题：选择器不弹出
 -->
 <html>
     <head>
+        <script type="text/javascript" src="getEnfant.js"></script> 
         <meta charset="UTF-8">
         <title>Votre cherche</title>
 
         <link rel="stylesheet" type="text/css" href="themes/ui-lightness/jquery.ui.all.css"/>  
-        <script type="text/javascript" src="JS/jquery-1.4.2.min.js"></script>  
-        <script type="text/javascript" src="JS/jquery.ui.core.js"></script>  
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>  
+        <script type="text/javascript" src="js/jquery.ui.core.js"></script>  
         <script type="text/javascript" src="JS/jquery.ui.datepicker.js"></script>  
         <script type="text/javascript">
 
@@ -36,21 +38,37 @@ and open the template in the editor.
         </style>  
     </head>
     <body>
-        <form method="post" action="sauveParentSelection.php"/>
+        <form method="post" action="sauveParentSelection.php">
         <div>
             <h1>
                 Je cherche un nounou:
             </h1></br>
-            <p><input type="checkbox" id="nounou_ponctuel">Garde ponctuelle</p>
-            <p><input type="checkbox" id="nounou_regulaire">Garde d’enfant régulière</p>
-            <p><input type="checkbox" id="nounou_langues">Garde d'enfant en langues étrangères</p>
+            <p><input type="checkbox" name="nounou_type" value="Garde ponctuelle">Garde ponctuelle</p>
+            <p><input type="checkbox" name="nounou_type" value="Garde d’enfant régulière">Garde d’enfant régulière</p>
+            <p><input type="checkbox" name="nounou_type" value="Garde d'enfant en langues étrangères">Garde d'enfant en langues étrangères</p>
         </div>
         <div>
             <h1>
                 Le date du temps je cherche： 
             </h1>
-            <p>Date début:<input type='text' id="dateDebut"/></p>
-            <p>Date fin:<input type='text' id="dateFin"/></p>
+            <p>Date début:<input type='date' name="dateDebut"/></p>
+            <p>Date fin:<input type='date' name="dateFin"/></p>
         </div>
+        <div>
+            <h1>
+                Des informations des enfants:
+            </h1>
+            <select name="enfants">
+                <option value="1">Un enfant</option>
+                <option value="2">Deux enfants</option>
+                <option value="3">Trois enfants</option>
+                <option value="4">Quart enfants</option>
+                <option value="5">Cinq enfants</option>
+            </select></br></br>
+        </div>
+            <div>
+            <input type="submit" value="Envoyer">
+            </div>
+        </form>
     </body>
 </html>

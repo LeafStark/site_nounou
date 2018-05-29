@@ -1,17 +1,8 @@
-
-$(document).ready(function(){
-                $("button").click(function(){
-                    $("#ajouteEnfant").find("tr").each(function(){
-                        var tdArr = $(this).children();
-                        var nom = tdArr.eq(0).find('input').val();
-                        
-                        $.post('getEnfant.php',{
-                            nom1 : nom,
-                            prenom :"aa"
-                        },function(data){
-                            alert(data);
-                        });
-                    });
-                });
-            });
-
+var nbEnfants = document.getElementById("enfants").value;
+function echoEnfant(){
+    for(var i =1;i<=nbEnfants;i++){
+        echo("<div>");
+        echo("<input type='text' name='prenom'");
+        echo("</div");
+    }
+}
