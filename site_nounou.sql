@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-29 14:48:06
+-- Generation Time: 2018-05-30 13:52:52
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `nounou` (
   `Presentation` text NOT NULL,
   `Evaluation` float NOT NULL,
   `Salaire` int(10) NOT NULL,
+  `type` varchar(20) NOT NULL,
   PRIMARY KEY (`ID_N`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -92,11 +93,11 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 -- 转存表中的数据 `nounou`
 --
 
-INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`) VALUES
-(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 0, 0),
-(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, '', '', 0, 0),
-(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, '', '', 0, 0),
-(4, 'LEE', 'bruce', 'NewYork', 'Bruce@nihao.com', 33333333, 'anglais,chinois', 36, '', '', 0, 0);
+INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
+(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 0, 0, ''),
+(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, '', '', 0, 0, ''),
+(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, '', '', 0, 0, ''),
+(4, 'LEE', 'bruce', 'NewYork', 'Bruce@nihao.com', 33333333, 'anglais,chinois', 36, '', '', 0, 0, '');
 
 -- --------------------------------------------------------
 
