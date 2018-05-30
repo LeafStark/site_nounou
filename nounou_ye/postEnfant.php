@@ -57,7 +57,7 @@ and open the template in the editor.
         ?>
         
         <a href="parentCherche.php">Modifier la cherche</a>
-        <a href="verifierLesQuelsNounou.php">Voir les nounous je cherche.</a>
+        <a href="nounouBon.php">Voir les nounous je cherche.</a>
         
     </body>
 </html>

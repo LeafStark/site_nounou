@@ -50,11 +50,6 @@ STO;
             }
         }
         echoEnfant();
-echo <<< STI
-        
-        
-STI;
-
 
                 ?>
             <input type='submit' value='Envoyer'>

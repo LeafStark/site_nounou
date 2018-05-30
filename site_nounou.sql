@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-30 13:52:52
+-- Generation Time: 2018-05-30 14:02:02
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -48,6 +48,22 @@ INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 ('sam@ch.com', 'nihao', 1, 'nounou'),
 ('xingyu.ye@utt.fr', 'password', 1, 'nounou'),
 ('yxy@utt.fr', 'password', 1, 'administrateur');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `diponibilite`
+--
+
+DROP TABLE IF EXISTS `diponibilite`;
+CREATE TABLE IF NOT EXISTS `diponibilite` (
+  `id_dispo` int(10) NOT NULL,
+  `jour` varchar(30) NOT NULL,
+  `heure_debut` int(2) NOT NULL,
+  `heure_fin` int(2) NOT NULL,
+  `email_nounou` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_dispo`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -121,6 +137,30 @@ CREATE TABLE IF NOT EXISTS `parents` (
 
 INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
 (1, 'ye', 'dalian', '695549485@qq.com', 'hi');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `parents_cherche`
+--
+
+DROP TABLE IF EXISTS `parents_cherche`;
+CREATE TABLE IF NOT EXISTS `parents_cherche` (
+  `email` varchar(20) NOT NULL,
+  `type_nounou` varchar(30) NOT NULL,
+  `date_debut` varchar(20) NOT NULL,
+  `date_fin` varchar(20) NOT NULL,
+  `nb_enfant` int(11) NOT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `parents_cherche`
+--
+
+INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `nb_enfant`) VALUES
+('qiao@qq.com', 'garde ponctuelle', '01/01/1996', '01/01/1997', 2),
+('du@qq.com', 'Garde ponctuelle', '2018-05-03', '2018-05-17', 3);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
