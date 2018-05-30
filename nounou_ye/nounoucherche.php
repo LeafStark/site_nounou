@@ -13,12 +13,12 @@ and open the template in the editor.
     <body>
         <div align="center">
             <form method="post" action="sauveNounouSelection.php"enctype="multipart/form-data">
-               <!-- <h2>Quels types de garde d'enfant souhaitez vous proposer ?</h2>
+             <h2>Quels types de garde d'enfant souhaitez vous proposer ?</h2>
                 <br />
-                <input type="checkbox" name="type_garde" id="nounou_ponctuel">Garde ponctuelle
-                <input type="checkbox" name="type_garde" id="nounou_regulaire">Garde d’enfant régulière
-                <input type="checkbox" name="type_garde" id="nounou_langues">Garde d'enfant en langues étrangères
-                <br/><br/>-->
+                <input type="checkbox" name="type_garde" value="nounou_ponctuel">Garde ponctuelle
+                <input type="checkbox" name="type_garde" value="nounou_regulaire">Garde d’enfant régulière
+                <input type="checkbox" name="type_garde" value="nounou_langues">Garde d'enfant en langues étrangères
+                <br/><br/>
                 <h2>Quelle expérience avez-vous avec les enfants ?</h2>
                 <input type="radio" name="experience" value="Pas d'expérience à ce jour, mais prêt à apprendre !">Pas d'expérience à ce jour, mais prêt à apprendre !<br/>
                 <input type="radio" name="experience" value="Experience familiale : garde de frères et soeurs, cousins.">Experience familiale : garde de frères et soeurs, cousins.<br/>

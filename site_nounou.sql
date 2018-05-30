@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-30 14:02:02
+-- Generation Time: 2018-05-30 21:28:19
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `compte` (
 --
 
 INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
-('Bruce@nihao.com', 'lixaolong', 1, 'nounou'),
-('David@nihao.com', 'nihao', 1, 'nounou'),
+('David@nihao.com', 'nihao', 2, 'nounou'),
 ('dqq@utt.fr', 'password', 1, 'administrateur'),
+('Maxime@utt.fr', 'asd', 1, 'nounou'),
 ('sam@ch.com', 'nihao', 1, 'nounou'),
-('xingyu.ye@utt.fr', 'password', 1, 'nounou'),
+('xingyu.ye@utt.fr', 'password', 2, 'nounou'),
 ('yxy@utt.fr', 'password', 1, 'administrateur');
 
 -- --------------------------------------------------------
@@ -112,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
 (1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 0, 0, ''),
 (2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, '', '', 0, 0, ''),
-(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, '', '', 0, 0, ''),
-(4, 'LEE', 'bruce', 'NewYork', 'Bruce@nihao.com', 33333333, 'anglais,chinois', 36, '', '', 0, 0, '');
+(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'asd', 0, 0, 'nounou_ponctuel'),
+(5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 0, 0, '');
 
 -- --------------------------------------------------------
 
