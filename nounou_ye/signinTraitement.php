@@ -25,7 +25,7 @@ if (checkEmpty($email, $password)) {
     //echo "$rows";
     if($rows!=0){
         for($i=0;$i<$rows;$i++){
-        
+        echo 2;
         if ($resultat[$i]['mot_de_passe'] == $password) {
             //echo '2';
             $_SESSION['email'] = $email;
@@ -48,11 +48,13 @@ if (checkEmpty($email, $password)) {
                     header('Location:administrateur.php');
                 }
             }
+        }else{echo '<html><head><Script Language="JavaScript">alert("Mot de passe invalide");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";
+            
         }
     }
     }
-    else{
-             echo '<html><head><Script Language="JavaScript">alert("用户不存在");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";  
+    else{echo 1;
+             echo '<html><head><Script Language="JavaScript">alert("Email invalide");</Script></head></html>' . "<meta http-equiv=\"refresh\" content=\"0;url=signin.html\">";  
         }
   }
 
