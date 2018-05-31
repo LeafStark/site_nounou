@@ -21,25 +21,25 @@ and open the template in the editor.
     </head>
     <body>
         <form method="post" action="postEnfant.php">
-        <?php
-        session_start();
-        // include 'sauveParentSelection.php';
-        require_once 'pdoConnexion.php';
-        $email = $_SESSION['email'];
-        //echo $email;
-        $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
-        $resultat = $dbh->query($query);
-        if ($enfant = $resultat->fetch()) {
-            //print_r($enfant);
-            $nb = $enfant['nb_enfant'];
-        }
-        echo ("<div><p>Vous avez $nb enfants, completez des infomations, s'il vous plait.</p></div>");
+            <?php
+            session_start();
+            // include 'sauveParentSelection.php';
+            require_once 'pdoConnexion.php';
+            $email = $_SESSION['email'];
+            //echo $email;
+            $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
+            $resultat = $dbh->query($query);
+            if ($enfant = $resultat->fetch()) {
+                //print_r($enfant);
+                $nb = $enfant['nb_enfant'];
+            }
+            echo ("<div><p>Vous avez $nb enfants, completez des infomations, s'il vous plait.</p></div>");
 
-        function echoEnfant($b) {
-            $n=$b;
-            for ($i = 0; $i < $n; $i++) {
-echo <<< STO
-                <form method="post" action="getEnfantInfo.php">
+            function echoEnfant($b) {
+                
+                for ($i = 0; $i < $b; $i++) {
+                    echo <<< STO
+        
                 <div id='enfant'>
                     <input type="text" name="prenom[]" placeholder="Prénom d'enfant" >
                 
@@ -48,11 +48,11 @@ echo <<< STO
                     <input type="text" name="restriction[]" placeholder="Restriction Alimentaire">
              
 STO;
+                }
             }
-        }
-        echoEnfant($nb);
 
-                ?>
+            echoEnfant($nb);
+            ?>
             <input type='submit' value='Envoyer'>
         </form>
     </body>
