@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-05-31 13:40:54
+-- Generation Time: 2018-05-31 18:57:57
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -45,6 +45,7 @@ INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 ('David@nihao.com', 'nihao', 2, 'nounou'),
 ('dqq@utt.fr', 'password', 1, 'administrateur'),
 ('Maxime@utt.fr', 'asd', 1, 'nounou'),
+('mike@qq.com', 'password', 1, 'parent'),
 ('sam@ch.com', 'nihao', 1, 'nounou'),
 ('xingyu.ye@utt.fr', 'password', 2, 'nounou'),
 ('yxy@utt.fr', 'password', 1, 'administrateur');
@@ -52,18 +53,28 @@ INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `diponibilite`
+-- 表的结构 `disponibilite`
 --
 
-DROP TABLE IF EXISTS `diponibilite`;
-CREATE TABLE IF NOT EXISTS `diponibilite` (
+DROP TABLE IF EXISTS `disponibilite`;
+CREATE TABLE IF NOT EXISTS `disponibilite` (
   `id_dispo` int(10) NOT NULL,
   `jour` varchar(30) NOT NULL,
-  `heure_debut` int(2) NOT NULL,
-  `heure_fin` int(2) NOT NULL,
+  `date_debut` date NOT NULL,
+  `date_fin` date NOT NULL,
+  `heure_debut` varchar(6) NOT NULL,
+  `heure_fin` varchar(6) NOT NULL,
   `email_nounou` varchar(20) NOT NULL,
   PRIMARY KEY (`id_dispo`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `disponibilite`
+--
+
+INSERT INTO `disponibilite` (`id_dispo`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `email_nounou`) VALUES
+(1, 'travailler', '2018-02-01', '2018-03-02', '08:00', '10:00', 'xingyu.ye@utt.fr'),
+(2, '0', '2018-05-02', '2018-06-13', '10:00', '17:00', 'xingyu.ye@utt.fr');
 
 -- --------------------------------------------------------
 
@@ -136,7 +147,8 @@ CREATE TABLE IF NOT EXISTS `parents` (
 --
 
 INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
-(1, 'ye', 'dalian', '695549485@qq.com', 'hi');
+(1, 'ye', 'dalian', '695549485@qq.com', 'hi'),
+(2, 'Mike', 'London', 'mike@qq.com', 'nihao\r\n');
 
 -- --------------------------------------------------------
 

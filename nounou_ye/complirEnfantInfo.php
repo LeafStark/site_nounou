@@ -27,7 +27,7 @@ and open the template in the editor.
         require_once 'pdoConnexion.php';
         $email = $_SESSION['email'];
         echo $email;
-        $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
+        $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='du@qq.com'";
         $resultat = $dbh->query($query);
         if ($enfant = $resultat->fetch()) {
             //print_r($enfant);
@@ -35,8 +35,9 @@ and open the template in the editor.
         }
         echo ("Vous avez $nb enfants, completez des infomations, s'il vous plait.");
 
-        function echoEnfant() {
-            for ($i = 0; $i < 5; $i++) {
+        function echoEnfant($b) {
+            $n=$b;
+            for ($i = 0; $i < $n; $i++) {
 echo <<< STO
                 <form method="post" action="getEnfantInfo.php">
                 <div id='enfant'>
@@ -49,7 +50,7 @@ echo <<< STO
 STO;
             }
         }
-        echoEnfant();
+        echoEnfant($nb);
 
                 ?>
             <input type='submit' value='Envoyer'>

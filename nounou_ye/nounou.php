@@ -15,7 +15,8 @@
         echo $resultat["Prenom"] . " " . $resultat['Nom'];
         echo("的页面<br/>");
         ?>
-        <p><a href="disponibilitesNounou.php">Disponibilités</a></p>
+        <p><a href="disponibilitesNounou.html">Disponibilités</a></p>
         <p><a href="nounoucherche.php">Informations</a></p>
+         <p><a href="planning.php">Planning</a></p>
     </body>
 </html>

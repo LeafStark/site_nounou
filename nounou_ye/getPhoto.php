@@ -3,7 +3,7 @@ $target_dir  = "photos/";
 $target_file = $target_dir . basename($_FILES["photo"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
+$email = $_SESSION['email'];
 // 检查是否为图片
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["photo"]["tmp_name"]);
@@ -25,6 +25,8 @@ if ($uploadOk == 0) {
     echo "Désolé, votre photo n'est pas télécharger .";echo "<br />";
 // 上传
 } else {
+    $_FILES["photo"]["name"]=$email.".jpg";
+    $target_file=$target_dir . basename($_FILES["photo"]["name"]);
     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
        
     } else {
