@@ -26,7 +26,7 @@ and open the template in the editor.
         echo $email;*/
         try {
             $query = "INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `nb_enfant`) VALUES ('$email', '$type', '$dateDebut', '$dateFin', '$nbEnfant')";
-            $queryUp = "UPDATE `parents_cherche` SET `email`=$email,`type_nounou`=$type,`date_debut`=$dateDebut,`date_fin`=$dateFin,`nb_enfant`=$nbEnfant WHERE  `email`=$email ";
+            //$queryUp = "UPDATE `parents_cherche` SET `email`=$email,`type_nounou`=$type,`date_debut`=$dateDebut,`date_fin`=$dateFin,`nb_enfant`=$nbEnfant WHERE  `email`=$email ";
             $dbh->exec($query);
             $dbh->exec($queryUp);
             header('Location:complirEnfantInfo.php');

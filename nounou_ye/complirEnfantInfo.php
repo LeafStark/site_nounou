@@ -26,14 +26,14 @@ and open the template in the editor.
         // include 'sauveParentSelection.php';
         require_once 'pdoConnexion.php';
         $email = $_SESSION['email'];
-        echo $email;
-        $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='du@qq.com'";
+        //echo $email;
+        $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
         $resultat = $dbh->query($query);
         if ($enfant = $resultat->fetch()) {
             //print_r($enfant);
             $nb = $enfant['nb_enfant'];
         }
-        echo ("Vous avez $nb enfants, completez des infomations, s'il vous plait.");
+        echo ("<div><p>Vous avez $nb enfants, completez des infomations, s'il vous plait.</p></div>");
 
         function echoEnfant($b) {
             $n=$b;
