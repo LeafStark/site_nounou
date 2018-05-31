@@ -9,26 +9,28 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-    $(function(){
-      $.post('url.php',{id:<?=$id;?>},function(data){
-        alert(data);
-      });
+        <script>
+            $(function () {
+                $.post('url.php', {id:<?=$id;?>},function(data){
+                                    alert(data);
     });
-</script>
-
-<script>
-    $(function(){
-    var id = $('input[name="test"]').val();
-      $.post('url.php',{id:id},function(data){
-        alert(data);
-      });
     });
-</script>
+        </script>
 
-    </head>
-    <body>
-        <div>TODO write content</div>
-        <input type="hidden" name="test" value="2">
-    </body>
-</html>
+        <script>
+        $(function(){
+                                var id = $('input[name="test"]').val();
+                                $.post('url.php', {id: id},function(data){
+                                                alert(data);
+                });
+                });
+            </script>
+
+        </head>
+        <body>
+            <div>TODO write content</div>
+            
+
+            <input type="hidden" name="test" value="2">
+        </body>
+    </html>
