@@ -33,10 +33,10 @@ and open the template in the editor.
         </h1>
         <a href="validerNounou.php">
             Valider des nounous
-        </a>
+        </a><br />
         <a href="bloquerNounou.php">
             Bloquer des nounous
-        </a>
+        </a><br />
         <a href="librerNounou.php">
             Librer des nounous
         </a>

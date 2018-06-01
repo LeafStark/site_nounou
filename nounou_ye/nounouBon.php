@@ -34,6 +34,8 @@ and open the template in the editor.
     $resT = $dbh->query($requetT);
     $t=$resT->fetch();
     //var_dump($t);
+    echo intval($t['date_debut']);
+    echo intval($t['date_fin']);
     if(intval($t['date_debut'])<= intval($dateDebut)and intval($t['date_fin'])>=$dateFin)
     {
                 echo "<pre>";
@@ -44,7 +46,7 @@ and open the template in the editor.
                 echo "<li>Portable: ".$resultatN[$i]['Portable']."</li>";
                 echo "<li>Experience: ".$resultatN[$i]['Experience']."</li>";
                 echo"</ul>";
-               
+               echo "<a href='commande.php'>Choisissez ce nounou</a>";
                 echo "</pre>";
             }
         }
