@@ -36,12 +36,9 @@ echo $nb;
                 echo$restrictionE = $restriction[$i];
              //   echo $restrictionE;
                 try {
-<<<<<<< HEAD
                     $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES  ('$prenomE','$date','$restrictionE','$email');";
                     $dbh->exec($queryE);
-=======
-                   
->>>>>>> d517011f3983fd270cef4807ffdeb5b55021a544
+
                 } catch (Exception $exc) {
                     echo $exc->getTraceAsString();
                 }
