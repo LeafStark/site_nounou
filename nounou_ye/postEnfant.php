@@ -26,17 +26,25 @@ and open the template in the editor.
         $prenom = $_POST['prenom'];
         $dateN = $_POST['dateDeNaissance'];
         $restriction = $_POST['restriction'];
+<<<<<<< HEAD
        /// print_r($restriction);
 //echo $nb;
+=======
+       // print_r($restriction);
+     
+echo $nb;
+>>>>>>> 83e271e63f709ba5ed66deabd697d21a668ccd0e
         for ($i = 0; $i < $nb; $i++) {
             if (isset($prenom[$i])) {
-                $prenomE = $prenom[$i];
-                $date = $dateN[$i];
-                $restrictionE = $restriction[$i];
-                echo $restrictionE;
+               echo $prenomE = $prenom[$i];
+               echo $date = $dateN[$i];
+                echo$restrictionE = $restriction[$i];
+             //   echo $restrictionE;
                 try {
+
                     $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', '$email');";
                     $dbh->exec($queryE);
+
                 } catch (Exception $exc) {
                     echo $exc->getTraceAsString();
                 }

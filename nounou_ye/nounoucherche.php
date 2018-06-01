@@ -15,9 +15,9 @@ and open the template in the editor.
             <form method="post" action="sauveNounouSelection.php"enctype="multipart/form-data">
              <h2>Quels types de garde d'enfant souhaitez vous proposer ?</h2>
                 <br />
-                <input type="checkbox" name="type_garde" value="nounou_ponctuel">Garde ponctuelle
-                <input type="checkbox" name="type_garde" value="nounou_regulaire">Garde d’enfant régulière
-                <input type="checkbox" name="type_garde" value="nounou_langues">Garde d'enfant en langues étrangères
+                <input type="checkbox" name="type_garde" value="ponctuelle">Garde ponctuelle
+                <input type="checkbox" name="type_garde" value="reguliere">Garde d’enfant régulière
+                <input type="checkbox" name="type_garde" value="langues">Garde d'enfant en langues étrangères
                 <br/><br/>
                 <h2>Quelle expérience avez-vous avec les enfants ?</h2>
                 <input type="radio" name="experience" value="Pas d'expérience à ce jour, mais prêt à apprendre !">Pas d'expérience à ce jour, mais prêt à apprendre !<br/>

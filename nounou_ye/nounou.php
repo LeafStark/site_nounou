@@ -8,12 +8,13 @@
         <?php
         require_once 'pdoConnexion.php';
         session_start();
+        if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
         $requet = "SELECT * FROM `nounou` where `Email`='$email';";
         $res = $dbh->query($requet);
         $resultat = $res->fetch();
         echo $resultat["Prenom"] . " " . $resultat['Nom'];
-        echo("的页面<br/>");
+        echo("的页面<br/>");}
         ?>
         <p><a href="disponibilitesNounou.html">Disponibilités</a></p>
         <p><a href="nounoucherche.php">Informations</a></p>
