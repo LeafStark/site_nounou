@@ -13,15 +13,20 @@ and open the template in the editor.
         <?php
         //require 'sauveParentSelection.php';
         require_once 'pdoConnexion.php';
+        require_once 'calcul.php';
         session_start();
         $email = $_SESSION['email'];
         $requet = "SELECT * FROM `parents_cherche` where `email` = '$email';";
 
         $res = $dbh->query($requet);
         $resultat = $res->fetch();
+        //var_dump($resultat);
         $type = $resultat['type_nounou'];
         $dateDebut = $resultat['date_debut'];
         $dateFin = $resultat['date_fin'];
+        $heureDebut=$resultat['heure_debut'];
+        $heureFin = $resultat['heure_fin'];
+        $nb_enfant=$resultat['nb_enfant'];
        // var_dump($dateFin);
         $requetN = "SELECT * FROM `nounou` where `type` = '$type';";
         $resN = $dbh->query($requetN);
@@ -37,7 +42,12 @@ and open the template in the editor.
                     $resT = $dbh->query($requetT);
                     $t = $resT->fetch();
                     //var_dump($t);
-                    if (intval($t['date_debut']) <= intval($dateDebut)and intval($t['date_fin']) >= $dateFin) {
+                    //var_dump(intval(str_replace(":","",$t['heure_debut'])));
+                   //var_dump(intval(str_replace(":","",$heureDebut)));
+                    //var_dump(intval(str_replace(":","",$t['heure_fin'])));
+                    //var_dump(intval(str_replace(":","",$heureFin)));
+                    if (intval(str_replace("-","",$t['heure_debut'])) <= intval(str_replace("-","",$dateDebut))and intval(str_replace("-","",$t['date_fin'])) >= intval(str_replace("-","",$dateFin))
+                            and intval(str_replace(":","",$t['heure_debut'])) <= intval(str_replace(":","",$heureDebut))and intval(str_replace(":","",$t['heure_fin'])) >= intval(str_replace(":","",$heureFin))) {
                         $prenomN = $resultatN[$i]['Prenom'];
                         $ageN = $resultatN[$i]['Age'];
                         $villeN = $resultatN[$i]['Ville'];
@@ -60,8 +70,11 @@ and open the template in the editor.
                         echo "<li>Experience: " . $resultatN[$i]['Experience'] . "</li>";
                         echo("<input type='hidden' name='experience' value='$experienceN']'>");
                         echo"</ul>";
-
                         echo "</pre>";
+                       $heure= calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin);
+                       $money=calculSalaire($heure, $type, $nb_enfant);
+                        echo("<input type='hidden' name='heure' value='$heure'>");
+                         echo("<input type='hidden' name='money' value='$money'>");
                         echo("<input type='submit' value='Je choisis'>");
                         echo("</form>");
                     }
