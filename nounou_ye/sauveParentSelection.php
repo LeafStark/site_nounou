@@ -16,20 +16,32 @@ and open the template in the editor.
 
         $email = $_SESSION['email'];
         $type = $_POST["nounou_type"];
-        $dateDebut = $_POST['dateDebut'];
-        $dateFin = $_POST['dateFin'];
+        $dateDebut = $_POST['dateDebutN'];
+        $dateFin = $_POST['dateFinN'];
+        $heureDebut = $_POST['heureDebutN'];
+        $heureFin = $_POST['heureFinN'];
         $nbEnfant = $_POST['enfants'];
-        /*echo $type;
-        echo $dateDebut;
-        echo $dateFin;
+        echo $type;
+        echo $heureDebut;
+        echo $heureFin;
         echo $nbEnfant;
-        echo $email;*/
+        echo $email;
         try {
-            $query = "INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `nb_enfant`) VALUES ('$email', '$type', '$dateDebut', '$dateFin', '$nbEnfant')";
-            //$queryUp = "UPDATE `parents_cherche` SET `email`=$email,`type_nounou`=$type,`date_debut`=$dateDebut,`date_fin`=$dateFin,`nb_enfant`=$nbEnfant WHERE  `email`=$email ";
-            $dbh->exec($query);
-            $dbh->exec($queryUp);
-            header('Location:complirEnfantInfo.php');
+            $queryExiste = "SELECT * FROM `parents_cherche` WHERE `email`='$email'";
+            $result = $dbh->query($queryExiste);
+            // var_dump($result);
+            $nbLigne = count($result->fetchAll());
+            var_dump($nbLigne);
+            if ($nbLigne > 0) {
+                $queryUp = "UPDATE `parents_cherche` SET `email`='$email',`type_nounou`='$type',`date_debut`=$dateDebut,`date_fin`=$dateFin,`heure_debut`='$heureDebut', `heure_fin`='$heureFin',`nb_enfant`=$nbEnfant WHERE  `email`='$email' ";
+                $dbh->exec($queryUp);
+                header('Location:complirEnfantInfo.php');
+            } else {
+                $query = "INSERT INTO `parents_cherche`(`email`, `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES ('$email', '$type', '$dateDebut', '$dateFin','$heureDebut','$heireFin ',$nbEnfant')";
+
+                $dbh->exec($query);
+                header('Location:complirEnfantInfo.php');
+            }
         } catch (PDOException $e) {
             die("Error!: " . $e->getMessage() . "<br/>");
         }// put your code here

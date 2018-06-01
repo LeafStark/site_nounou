@@ -10,12 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <div>
-            <a href="nounouRegistration.php">Vous être nounou?</a>
-        </div>
-        <div>
-            <a href="parentRegistration.php">Vous être parents?</a>
-        </div>
+        
         <?php
         // put your code here
         ?>

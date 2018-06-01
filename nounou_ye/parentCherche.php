@@ -19,8 +19,8 @@ and open the template in the editor.
 
             $("#dateDebut").datepicker({
                 showOn: "button",
-                 buttonImage: "Images/calendar.gif",
-                 buttonImageOnly: true
+                buttonImage: "Images/calendar.gif",
+                buttonImageOnly: true
             });
 
 
@@ -39,35 +39,42 @@ and open the template in the editor.
     </head>
     <body>
         <form method="post" action="sauveParentSelection.php">
-        <div>
-            <h1>
-                Je cherche un nounou:
-            </h1></br>
-            <p><input type="checkbox" name="nounou_type" value="Garde ponctuelle">Garde ponctuelle</p>
-            <p><input type="checkbox" name="nounou_type" value="Garde d’enfant régulière">Garde d’enfant régulière</p>
-            <p><input type="checkbox" name="nounou_type" value="Garde d'enfant en langues étrangères">Garde d'enfant en langues étrangères</p>
-        </div>
-        <div>
-            <h1>
-                Le date du temps je cherche： 
-            </h1>
-            <p>Date début:<input type='date' name="dateDebut"/></p>
-            <p>Date fin:<input type='date' name="dateFin"/></p>
-        </div>
-        <div>
-            <h1>
-                Des informations des enfants:
-            </h1>
-            <select name="enfants">
-                <option value="1">Un enfant</option>
-                <option value="2">Deux enfants</option>
-                <option value="3">Trois enfants</option>
-                <option value="4">Quart enfants</option>
-                <option value="5">Cinq enfants</option>
-            </select></br></br>
-        </div>
             <div>
-            <input type="submit" value="Envoyer">
+                <h1>
+                    Je cherche un nounou:
+                </h1></br>
+                <p><input type="checkbox" name="nounou_type" value="ponctuelle">Garde ponctuelle</p>
+                <p><input type="checkbox" name="nounou_type" value="reguliere">Garde d’enfant régulière</p>
+                <p><input type="checkbox" name="nounou_type" value="langues">Garde d'enfant en langues étrangères</p>
+            </div>
+            <div>
+                <h1>
+                    Le date du temps je cherche： 
+                </h1>
+                <p>Date début:<input type='date' name="dateDebutN"/></p>
+                <p>Date fin:<input type='date' name="dateFinN"/></p>
+            </div>
+            <div>
+                <h1>
+                    L'heure je précise:
+                </h1>
+                <p>Heure début:<input type='time' name="heureDebutN"/></p>
+                <p>Heure fin:<input type='time' name="heureFinN"/></p>
+            </div>
+            <div>
+                <h1>
+                    Des informations des enfants:
+                </h1>
+                <select name="enfants">
+                    <option value="1">Un enfant</option>
+                    <option value="2">Deux enfants</option>
+                    <option value="3">Trois enfants</option>
+                    <option value="4">Quart enfants</option>
+                    <option value="5">Cinq enfants</option>
+                </select></br></br>
+            </div>
+            <div>
+                <input type="submit" value="Envoyer">
             </div>
         </form>
     </body>
