@@ -18,4 +18,4 @@ try {
 } catch (PDOException $e) {
     die("Error!: " . $e->getMessage() . "<br/>");
 }
- echo  "<p><a href=nounou.php'>Retour</a></p>";
+ echo  "<p><a href=nounou.php>Retour</a></p>";
