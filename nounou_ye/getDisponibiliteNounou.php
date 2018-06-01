@@ -23,7 +23,7 @@ try {
     $result = $dbh->query($queryExiste);
     // var_dump($result);
     $nbLigne = count($result->fetchAll());
-    var_dump($nbLigne);
+    //var_dump($nbLigne);
     if ($nbLigne > 0) {
         $queryUp = "UPDATE `disponibilite` SET `id_dispo`='$id',`jour`='$jour',`date_debut`='$date_debut',`date_fin`='$date_fin',`heure_debut`='$heureDebut', `heure_fin`='$heureFin' WHERE `disponibilite`.`email_nounou`='$email' ;";
         $dbh->exec($queryUp);
