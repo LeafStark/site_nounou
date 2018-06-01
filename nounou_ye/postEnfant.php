@@ -35,8 +35,8 @@ echo $nb;
                 $restrictionE = $restriction[$i];
                 echo $restrictionE;
                 try {
-                    $queryE = "INSERT INTO `enfant`(`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE','$date','$restrictionE','$email')";
-                    $dbh->exec($queryE);
+                    $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', '$email');";
+                    $dbh->query($queryE);
                 } catch (Exception $exc) {
                     echo $exc->getTraceAsString();
                 }
@@ -58,8 +58,7 @@ echo $nb;
        // echo("$resultatEnfants");
         ?>
         
-        <a href="parentCherche.php">Modifier la cherche</a>
-        <a href="nounouBon.php">Voir les nounous je cherche.</a>
+        <p>Les infos ont ete enregisre!</p>
         
     </body>
 </html>
