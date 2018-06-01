@@ -26,14 +26,10 @@ and open the template in the editor.
         $prenom = $_POST['prenom'];
         $dateN = $_POST['dateDeNaissance'];
         $restriction = $_POST['restriction'];
-<<<<<<< HEAD
+
        /// print_r($restriction);
 //echo $nb;
-=======
-       // print_r($restriction);
-     
-echo $nb;
->>>>>>> 83e271e63f709ba5ed66deabd697d21a668ccd0e
+
         for ($i = 0; $i < $nb; $i++) {
             if (isset($prenom[$i])) {
                echo $prenomE = $prenom[$i];
