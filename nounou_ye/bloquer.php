@@ -22,5 +22,6 @@ and open the template in the editor.
             }
         }
         ?>
+         <a href="administrateur.php">Retour</a>
     </body>
 </html>

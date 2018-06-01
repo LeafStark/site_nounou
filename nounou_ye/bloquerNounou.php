@@ -13,11 +13,10 @@ and open the template in the editor.
         <form method="post" action="bloquer.php">
             <?php
         require_once 'pdoConnexion.php';
-        $email = $_SESSION['email'];
         $requet = "select * from `compte`,`nounou`  where `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=2;";
         $resultats = $dbh->query($requet);
         $row = $resultats->fetch();
-       print_r($row);
+      // print_r($row);
          echo "<pre>";
                     echo $row['Prenom'] . " " . $row['Nom'] . "<ul>";
                     echo "<li>Age: " . $row['Age'] . "</li>";
@@ -31,6 +30,6 @@ and open the template in the editor.
         ?>
             <input type="submit" value="Envoyer">
         </form>
-        
+         <a href="administrateur.php">Retour</a>
     </body>
 </html>

@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         require_once 'pdoConnexion.php';
-        $bloquer = $_POST['bloquer'];
+        $bloquer = $_POST['librer'];
         foreach ($bloquer as $email) {
             try {
                 $query = "UPDATE `compte` SET `status`=2 WHERE `compte`.`login` = '$email';";
@@ -22,6 +22,7 @@ and open the template in the editor.
             }
         }
         ?>
+       <a href="administrateur.php">Retour</a>
     </body>
 </html>
 

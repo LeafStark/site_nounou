@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-01 11:53:40
+-- Generation Time: 2018-06-01 13:31:48
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `site_nounou`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `commande`
+--
+
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `ID_C` int(10) NOT NULL,
+  `Email_N` varchar(20) NOT NULL,
+  `Email_P` varchar(20) NOT NULL,
+  `Duree` int(2) NOT NULL,
+  `Salaire` int(11) NOT NULL,
+  PRIMARY KEY (`ID_C`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `commande`
+--
+
+INSERT INTO `commande` (`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`) VALUES
+(1, 'sam@ch.com', 'mike@qq.com', 5, 45);
 
 -- --------------------------------------------------------
 
@@ -46,7 +69,7 @@ INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 ('dqq@utt.fr', 'password', 1, 'administrateur'),
 ('Maxime@utt.fr', 'asd', 1, 'nounou'),
 ('mike@qq.com', 'password', 1, 'parent'),
-('sam@ch.com', 'nihao', 0, 'nounou'),
+('sam@ch.com', 'nihao', 2, 'nounou'),
 ('xingyu.ye@utt.fr', 'password', 1, 'nounou'),
 ('yxy@utt.fr', 'password', 1, 'administrateur');
 
@@ -162,6 +185,8 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
   `type_nounou` varchar(30) NOT NULL,
   `date_debut` varchar(20) NOT NULL,
   `date_fin` varchar(20) NOT NULL,
+  `heure_debut` time(6) NOT NULL,
+  `heure_fin` time(6) NOT NULL,
   `nb_enfant` int(11) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -170,9 +195,9 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
 -- 转存表中的数据 `parents_cherche`
 --
 
-INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `nb_enfant`) VALUES
-('du@qq.com', 'ponctuelle', '2018-05-03', '2018-05-17', 3),
-('mike@qq.com', 'ponctuelle', '2018-05-07', '2018-05-10', 1);
+INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
+('du@qq.com', 'ponctuelle', '2018-05-03', '2018-05-17', '00:00:00.000000', '00:00:00.000000', 3),
+('mike@qq.com', 'reguliere', '2018-05-30', '2018-06-02', '12:00:00.000000', '14:00:00.000000', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

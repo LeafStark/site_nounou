@@ -33,7 +33,7 @@ and open the template in the editor.
             $nbLigne = count($result->fetchAll());
             var_dump($nbLigne);
             if ($nbLigne > 0) {
-                $queryUp = "UPDATE `parents_cherche` SET `email`='$email',`type_nounou`='$type',`date_debut`=$dateDebut,`date_fin`=$dateFin,`heure_debut`='$heureDebut', `heure_fin`='$heureFin',`nb_enfant`=$nbEnfant WHERE  `email`='$email' ";
+                $queryUp = "UPDATE `parents_cherche` SET `email`='$email',`type_nounou`='$type',`date_debut`='$dateDebut',`date_fin`='$dateFin',`heure_debut`='$heureDebut', `heure_fin`='$heureFin',`nb_enfant`=$nbEnfant WHERE `email`='$email' ";
                 $dbh->exec($queryUp);
                 header('Location:complirEnfantInfo.php');
             } else {
