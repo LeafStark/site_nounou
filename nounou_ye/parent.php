@@ -5,13 +5,13 @@ require_once 'pdoConnexion.php';
 $email = $_SESSION['email'];
 $requet = "select * from parents where Email = '$email'";
 $resultats = $dbh->query($requet);
+
 $requetCherche = "SELECT `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant` FROM `parents_cherche` WHERE email = '$email'";
 $resultatCherche = $dbh->query($requetCherche);
-$requetCommande = "SELECT * FROM `commande` WHERE Email_P = $email";
-$resultatCommande = $dbh->query($requetCommande);
+
 $row = $resultats->fetch();
 $rowCherche = $resultatCherche->fetch();
-$rowCommande = $resultatCommande->fetch();
+//$rowCommande = $resultatCommande->fetch();
 //print_r($row);
 //个人信息
 echo("<h1>Page du " . $row['Nom_F'] . "<h1>");
@@ -31,15 +31,15 @@ echo("</div>");
 echo("<h1>Votre nounou cherche est: </h1>");
 if ($rowCherche != null) {
     foreach ($rowCherche as $key => $value) {
-        foreach ($value as $k => $v) {
-            if (!is_integer($k)) {
+       
+            if (!is_integer($key)) {
                 echo("<div>");
                 echo("<ul>");
-                echo("<li>$k : $v</li>");
+                echo("<li>$key : $value</li>");
                 echo("</ul>");
                 echo("</div>");
                 continue;
-            }
+           
         }
     }
 } else {
@@ -56,7 +56,7 @@ if ($rowCherche != null) {
             <a href="nounouBon.php">Voir les nounous je cherche.</a>
         </div>
         <div>
-            echo("<a href='commandeEffctue.php'>Mes commandes</a>");
+            <a href='commandeEffectue.php'>Mes commandes</a>
         </div>
     </body>
 </html>
