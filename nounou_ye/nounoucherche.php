@@ -8,9 +8,14 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+   <script src="popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
         <title></title>
     </head>
     <body>
+        <?php require_once 'navbar.html';?>
+        <br/><br/><br/>
         <div align="center">
             <form method="post" action="sauveNounouSelection.php"enctype="multipart/form-data">
              <h2>Quels types de garde d'enfant souhaitez vous proposer ?</h2>

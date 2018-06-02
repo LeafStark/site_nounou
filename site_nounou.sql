@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-01 20:08:05
+-- Generation Time: 2018-06-02 23:33:27
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -134,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `nounou` (
   `Portable` int(10) NOT NULL,
   `Langue` varchar(100) NOT NULL,
   `Age` int(2) NOT NULL,
-  `Experience` text NOT NULL,
-  `Presentation` text NOT NULL,
+  `Experience` varchar(100) NOT NULL,
+  `Presentation` varchar(100) NOT NULL,
   `Evaluation` float NOT NULL,
   `Salaire` int(10) NOT NULL,
   `type` varchar(20) NOT NULL,
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 --
 
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
-(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 0, 0, 'reguliere'),
+(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'Bonjour', 0, 0, 'ponctuelle'),
 (2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 0, 0, 'reguliere'),
 (3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'asd', 0, 0, 'ponctuelle'),
 (5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 0, 0, '');

@@ -8,13 +8,16 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script lang="javascript" type="text/javascript" src="addText.js"></script>
-        <script lang="javascript" type="text/javascript" src="deleteText.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="getenant.js"></script>
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+   <script src="popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+    <link href="signin.css" rel="stylesheet">
     </head>
     <body>
-        <form method="post" action="getParentRegistration.php">
+        <?php require_once 'navbar.html';?>
+        <form class='form-signin' method="post" action="getParentRegistration.php">
             <div class="form-group">
                 <input type="text" name="nom" placeholder="Nom de famille" required="true">
             </div>
@@ -30,11 +33,8 @@ and open the template in the editor.
              <div class="form-group">
                  <textarea  name="informationGenerale" placeholder="Information Générale" required="true" rows="5" cols="30"></textarea>
              </div>
-            <input type="submit" value="S'inscrire">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 120px">S'inscrire</button>
         </form>
        
-        <?php
-        // put your code here
-        ?>
     </body>
 </html>
