@@ -28,7 +28,7 @@ if ($uploadOk == 0) {
     $_FILES["photo"]["name"]=$email.".jpg";
     $target_file=$target_dir . basename($_FILES["photo"]["name"]);
     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-       
+       echo $target_file;
     } else {
         echo "Désolé , une erreur s'est produite lors du téléchargement de votre fichier.";echo "<br />";
     }

@@ -6,6 +6,7 @@
     </head>
     <body>
         <?php
+        require_once 'showphoto.php';
         require_once 'pdoConnexion.php';
         session_start();
         if(isset($_SESSION['email'])){
@@ -15,6 +16,7 @@
         $resultat = $res->fetch();
         echo $resultat["Prenom"] . " " . $resultat['Nom'];
         echo("的页面<br/>");}
+show($email);
         ?>
         <p><a href="disponibilitesNounou.html">Disponibilités</a></p>
         <p><a href="nounoucherche.php">Informations</a></p>
