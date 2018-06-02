@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         //require 'sauveParentSelection.php';
+        require_once 'showphoto.php';
         require_once 'pdoConnexion.php';
         require_once 'calcul.php';
         session_start();
@@ -54,7 +55,7 @@ and open the template in the editor.
                         $emailN = $resultatN[$i]['Email'];
                         $portableN = $resultatN[$i]['Portable'];
                         $experienceN = $resultatN[$i]['Experience'];
-                        
+                        show($emailN);
                         echo("<form method='post' action='commande.php'>");
                         echo "<pre>";
                         echo $resultatN[$i]['Prenom'] . " " . $resultatN[$i]['Nom'] . "<ul>";
