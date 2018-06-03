@@ -13,15 +13,15 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="carousel.css" rel="stylesheet">
+   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+   <script src="popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
    <style> body {
   min-height: 75rem;
   padding-top: 4.5rem;
 }
 
    </style>
-   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-   <script src="popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
   </head>
 
   <body>

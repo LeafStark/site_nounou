@@ -8,10 +8,17 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+         <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+   <script src="popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <?php
+        require_once 'navbar.html';
         require_once"pdoConnexion.php";
+        echo"<br />";
         try {
             $requet_nbc = "SELECT COUNT(`ID_N`) FROM `nounou` ,`compte` WHERE `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=1;";
             $requet_nbi = "SELECT COUNT(`ID_N`) FROM `nounou` ,`compte` WHERE `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=2;";
@@ -28,6 +35,7 @@ and open the template in the editor.
                 die("Error!: " . $e->getMessage() . "<br/>");
             }
             ?>
+     
         <h1>
             Vous êtes administrateur, vous avez 3 options：
         </h1>

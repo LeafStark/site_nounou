@@ -72,7 +72,7 @@ and open the template in the editor.
                         echo("<input type='hidden' name='experience' value='$experienceN']'>");
                         echo"</ul>";
                         echo "</pre>";
-                       $heure= calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin);
+                       $heure= calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin,'tous');
                        $money=calculSalaire($heure, $type, $nb_enfant);
                         echo("<input type='hidden' name='heure' value='$heure'>");
                          echo("<input type='hidden' name='money' value='$money'>");
