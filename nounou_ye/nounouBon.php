@@ -25,14 +25,14 @@ and open the template in the editor.
         $type = $resultat['type_nounou'];
         $dateDebut = $resultat['date_debut'];
         $dateFin = $resultat['date_fin'];
-        $heureDebut=$resultat['heure_debut'];
+        $heureDebut = $resultat['heure_debut'];
         $heureFin = $resultat['heure_fin'];
-        $nb_enfant=$resultat['nb_enfant'];
-       // var_dump($dateFin);
+        $nb_enfant = $resultat['nb_enfant'];
+        // var_dump($dateFin);
         $requetN = "SELECT * FROM `nounou` where `type` = '$type';";
         $resN = $dbh->query($requetN);
         $resultatN = $resN->fetchAll();
-       // print_r($resultatN);
+        // print_r($resultatN);
         $rows = count($resultatN);
         //echo $rows;
         if ($rows != 0) {
@@ -44,11 +44,11 @@ and open the template in the editor.
                     $t = $resT->fetch();
                     //var_dump($t);
                     //var_dump(intval(str_replace(":","",$t['heure_debut'])));
-                   //var_dump(intval(str_replace(":","",$heureDebut)));
+                    //var_dump(intval(str_replace(":","",$heureDebut)));
                     //var_dump(intval(str_replace(":","",$t['heure_fin'])));
                     //var_dump(intval(str_replace(":","",$heureFin)));
-                    if (intval(str_replace("-","",$t['heure_debut'])) <= intval(str_replace("-","",$dateDebut))and intval(str_replace("-","",$t['date_fin'])) >= intval(str_replace("-","",$dateFin))
-                            and intval(str_replace(":","",$t['heure_debut'])) <= intval(str_replace(":","",$heureDebut))and intval(str_replace(":","",$t['heure_fin'])) >= intval(str_replace(":","",$heureFin))) {
+                    if (intval(str_replace("-", "", $t['heure_debut'])) <= intval(str_replace("-", "", $dateDebut))and intval(str_replace("-", "", $t['date_fin'])) >= intval(str_replace("-", "", $dateFin))
+                            and intval(str_replace(":", "", $t['heure_debut'])) <= intval(str_replace(":", "", $heureDebut))and intval(str_replace(":", "", $t['heure_fin'])) >= intval(str_replace(":", "", $heureFin))) {
                         $prenomN = $resultatN[$i]['Prenom'];
                         $ageN = $resultatN[$i]['Age'];
                         $villeN = $resultatN[$i]['Ville'];
@@ -72,17 +72,21 @@ and open the template in the editor.
                         echo("<input type='hidden' name='experience' value='$experienceN']'>");
                         echo"</ul>";
                         echo "</pre>";
-                       $heure= calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin,'tous');
-                       $money=calculSalaire($heure, $type, $nb_enfant);
+                        $heure = calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin, 'tous');
+                        $money = calculSalaire($heure, $type, $nb_enfant);
                         echo("<input type='hidden' name='heure' value='$heure'>");
-                         echo("<input type='hidden' name='money' value='$money'>");
+                        echo("<input type='hidden' name='money' value='$money'>");
                         echo("<input type='submit' value='Je choisis'>");
                         echo("</form>");
+                    } else {
+                        echo 'Pas de nounou propre';
+                        echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
                     }
+                } else {
+                    echo 'Pas de nounou propre';
+                    echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
                 }
-
-        }
-        else{
+        } else {
             echo 'Pas de nounou propre';
             echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
         }
