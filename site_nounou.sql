@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-03 20:48:49
+-- Generation Time: 2018-06-03 21:03:36
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -187,8 +187,8 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
   `jour` varchar(20) NOT NULL,
   `date_debut` varchar(20) NOT NULL,
   `date_fin` varchar(20) NOT NULL,
-  `heure_debut` time(6) NOT NULL,
-  `heure_fin` time(6) NOT NULL,
+  `heure_debut` varchar(20) NOT NULL,
+  `heure_fin` varchar(20) NOT NULL,
   `nb_enfant` int(11) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -198,8 +198,8 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
 --
 
 INSERT INTO `parents_cherche` (`email`, `type_nounou`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
-('du@qq.com', 'ponctuelle', '', '2018-05-03', '2018-05-17', '00:00:00.000000', '00:00:00.000000', 3),
-('mike@qq.com', 'ponctuelle', '0', '2018-06-01', '2018-06-08', '09:00:00.000000', '14:00:00.000000', 1);
+('du@qq.com', 'ponctuelle', '', '2018-05-03', '2018-05-17', '00:00', '00:00', 3),
+('mike@qq.com', 'ponctuelle', '0', '2018-06-01', '2018-06-08', '09:00', '14:00', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
