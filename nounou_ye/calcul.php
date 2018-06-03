@@ -58,6 +58,7 @@ function calculSalaire($heure, $type, $nb_enfant) {
     }
 }
 
+
 //var_dump(calculDuree('2018-06-02', '2018-06-06', '08:00', '10:00', "travailler"));
 //var_dump(strtotime("2018-10-01"));
 //var_dump(strtotime("2018-11-01"));

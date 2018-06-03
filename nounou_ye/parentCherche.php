@@ -61,10 +61,24 @@ and open the template in the editor.
                 <p>Heure début:<input type='time' name="heureDebutN"/></p>
                 <p>Heure fin:<input type='time' name="heureFinN"/></p>
             </div>
+            <p> Définir une disponibilité simple:<br />
+            <select name="jour">
+                <option value="travailler">Tous les jours travaillés</option>
+                <option value="tous">Tous les jours</option>
+               <optgroup label="tous les lundis, … dimanche">
+                   <option value=0>Tous les lundis</option>
+                   <option value=1>Tous les mardis</option>
+                   <option value=2>Tous les mecredis</option>
+                   <option value=3>Tous les jeudis</option>
+                   <option value=4>Tous les vendredis</option>
+                   <option  value=5>Tous les samedis</option>
+                   <option value=6>Tous les dimanches</option>
+            </select>
+        </p>
             <div>
-                <h1>
+                <p>
                     Des informations des enfants:
-                </h1>
+                </p>
                 <select name="enfants">
                     <option value="1">Un enfant</option>
                     <option value="2">Deux enfants</option>

@@ -32,9 +32,11 @@ and open the template in the editor.
         $requetN = "SELECT * FROM `nounou` where `type` = '$type';";
         $resN = $dbh->query($requetN);
         $resultatN = $resN->fetchAll();
+
         // print_r($resultatN);
+
         $rows = count($resultatN);
-        //echo $rows;
+        echo $rows;
         if ($rows != 0) {
             for ($i = 0; $i < $rows; $i++)
                 if ($resultatN[$i]['type'] == $type) {
