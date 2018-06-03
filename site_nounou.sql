@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-02 23:33:27
+-- Generation Time: 2018-06-03 20:48:49
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -43,10 +43,8 @@ CREATE TABLE IF NOT EXISTS `commande` (
 --
 
 INSERT INTO `commande` (`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`) VALUES
-(1, 'sam@ch.com', 'mike@qq.com', 5, 45),
-(2, 'sam@ch.com', 'mike@qq.com', 5, 45),
-(3, 'sam@ch.com', 'mike@qq.com', 5, 45),
-(4, 'sam@ch.com', 'mike@qq.com', 144, 1008);
+(2, 'xingyu.ye@utt.fr', 'mike@qq.com', 5, 45),
+(1, 'sam@ch.com', 'mike@qq.com', 5, 45);
 
 -- --------------------------------------------------------
 
@@ -134,8 +132,8 @@ CREATE TABLE IF NOT EXISTS `nounou` (
   `Portable` int(10) NOT NULL,
   `Langue` varchar(100) NOT NULL,
   `Age` int(2) NOT NULL,
-  `Experience` varchar(100) NOT NULL,
-  `Presentation` varchar(100) NOT NULL,
+  `Experience` text NOT NULL,
+  `Presentation` text NOT NULL,
   `Evaluation` float NOT NULL,
   `Salaire` int(10) NOT NULL,
   `type` varchar(20) NOT NULL,
@@ -147,10 +145,10 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 --
 
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
-(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'Bonjour', 0, 0, 'ponctuelle'),
-(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 0, 0, 'reguliere'),
-(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'asd', 0, 0, 'ponctuelle'),
-(5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 0, 0, '');
+(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 3, 0, 'reguliere'),
+(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 3, 0, 'reguliere'),
+(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'asd', 3, 0, 'ponctuelle'),
+(5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 3, 0, '');
 
 -- --------------------------------------------------------
 
@@ -186,10 +184,11 @@ DROP TABLE IF EXISTS `parents_cherche`;
 CREATE TABLE IF NOT EXISTS `parents_cherche` (
   `email` varchar(20) NOT NULL,
   `type_nounou` varchar(30) NOT NULL,
+  `jour` varchar(20) NOT NULL,
   `date_debut` varchar(20) NOT NULL,
   `date_fin` varchar(20) NOT NULL,
-  `heure_debut` varchar(8) NOT NULL,
-  `heure_fin` varchar(8) NOT NULL,
+  `heure_debut` time(6) NOT NULL,
+  `heure_fin` time(6) NOT NULL,
   `nb_enfant` int(11) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -198,9 +197,9 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
 -- 转存表中的数据 `parents_cherche`
 --
 
-INSERT INTO `parents_cherche` (`email`, `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
-('du@qq.com', 'ponctuelle', '2018-05-03', '2018-05-17', '00:00', '00:00', 3),
-('mike@qq.com', 'reguliere', '2018-05-30', '2018-06-02', '12:00', '14:00', 1);
+INSERT INTO `parents_cherche` (`email`, `type_nounou`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
+('du@qq.com', 'ponctuelle', '', '2018-05-03', '2018-05-17', '00:00:00.000000', '00:00:00.000000', 3),
+('mike@qq.com', 'ponctuelle', '0', '2018-06-01', '2018-06-08', '09:00:00.000000', '14:00:00.000000', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

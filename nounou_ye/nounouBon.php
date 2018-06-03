@@ -27,6 +27,7 @@ and open the template in the editor.
         $dateFin = $resultat['date_fin'];
         $heureDebut = $resultat['heure_debut'];
         $heureFin = $resultat['heure_fin'];
+        $jour = $resultat['jour'];
         $nb_enfant = $resultat['nb_enfant'];
         // var_dump($dateFin);
         $requetN = "SELECT * FROM `nounou` where `type` = '$type';";

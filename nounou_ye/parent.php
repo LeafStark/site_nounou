@@ -6,7 +6,7 @@ $email = $_SESSION['email'];
 $requet = "select * from parents where Email = '$email'";
 $resultats = $dbh->query($requet);
 
-$requetCherche = "SELECT `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant` FROM `parents_cherche` WHERE email = '$email'";
+$requetCherche = "SELECT `type_nounou`, `jour`,`date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant` FROM `parents_cherche` WHERE email = '$email'";
 $resultatCherche = $dbh->query($requetCherche);
 
 $row = $resultats->fetch();
