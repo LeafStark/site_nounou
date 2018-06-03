@@ -20,6 +20,7 @@ and open the template in the editor.
         $dateFin = $_POST['dateFinN'];
         $heureDebut = $_POST['heureDebutN'];
         $heureFin = $_POST['heureFinN'];
+        $jour = $_POST['jour'];
         $nbEnfant = $_POST['enfants'];
         echo $type;
         echo $heureDebut;
@@ -33,11 +34,11 @@ and open the template in the editor.
             $nbLigne = count($result->fetchAll());
             var_dump($nbLigne);
             if ($nbLigne > 0) {
-                $queryUp = "UPDATE `parents_cherche` SET `email`='$email',`type_nounou`='$type',`date_debut`='$dateDebut',`date_fin`='$dateFin',`heure_debut`='$heureDebut', `heure_fin`='$heureFin',`nb_enfant`=$nbEnfant WHERE `email`='$email' ";
+                $queryUp = "UPDATE `parents_cherche` SET `email`='$email',`type_nounou`='$type',`jour`='$jour',`date_debut`='$dateDebut',`date_fin`='$dateFin',`heure_debut`='$heureDebut', `heure_fin`='$heureFin',`nb_enfant`=$nbEnfant WHERE `email`='$email' ";
                 $dbh->exec($queryUp);
                 header('Location:complirEnfantInfo.php');
             } else {
-                $query = "INSERT INTO `parents_cherche`(`email`, `type_nounou`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES ('$email', '$type', '$dateDebut', '$dateFin','$heureDebut','$heireFin ',$nbEnfant')";
+                $query = "INSERT INTO `parents_cherche`(`email`, `type_nounou`,`jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES ('$email', '$type','$jour', '$dateDebut', '$dateFin','$heureDebut','$heireFin ',$nbEnfant')";
 
                 $dbh->exec($query);
                 header('Location:complirEnfantInfo.php');

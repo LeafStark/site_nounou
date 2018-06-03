@@ -20,3 +20,4 @@ function calculSalaire($heure, $type, $nb_enfant) {
         return $money;
     }
 }
+?>
