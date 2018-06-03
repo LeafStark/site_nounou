@@ -1,8 +1,9 @@
 <?php
 
 require_once 'pdoConnexion.php';
+if(isset($_['valider'])){
 $valider = $_POST['valider'];
-$refuser = $_POST['refuser'];
+
 foreach ($valider as $email) {
     try {
         $query = "UPDATE `compte` SET `status`=2 WHERE `compte`.`login` = '$email';";
@@ -11,7 +12,8 @@ foreach ($valider as $email) {
         die("Error!: " . $e->getMessage() . "<br/>");
     }
 }
-
+}
+if(isset($_POST['refuser'])){$refuser = $_POST['refuser'];
 foreach ($refuser as $email) {
     try {
         $query1 = "DELETE FROM `compte` WHERE `compte`.`login` = '$email';";
@@ -21,6 +23,6 @@ foreach ($refuser as $email) {
     } catch (PDOException $e) {
         die("Error!: " . $e->getMessage() . "<br/>");
     }
-}
+}}
 echo("<a href='administrateur.php'>Retour</a>");
 ?>
