@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-03 21:03:36
+-- Generation Time: 2018-06-03 21:25:11
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `Email_P` varchar(20) NOT NULL,
   `Duree` int(2) NOT NULL,
   `Salaire` int(11) NOT NULL,
+  `Status` int(11) NOT NULL,
   PRIMARY KEY (`ID_C`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -42,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `commande` (
 -- 转存表中的数据 `commande`
 --
 
-INSERT INTO `commande` (`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`) VALUES
-(2, 'xingyu.ye@utt.fr', 'mike@qq.com', 5, 45),
-(1, 'sam@ch.com', 'mike@qq.com', 5, 45);
+INSERT INTO `commande` (`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`, `Status`) VALUES
+(2, 'xingyu.ye@utt.fr', 'mike@qq.com', 5, 45, 0),
+(1, 'sam@ch.com', 'mike@qq.com', 5, 45, 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 --
 
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
-(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 3, 0, 'reguliere'),
+(1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'god', 3.875, 0, 'reguliere'),
 (2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 3, 0, 'reguliere'),
 (3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'asd', 3, 0, 'ponctuelle'),
 (5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 3, 0, '');
