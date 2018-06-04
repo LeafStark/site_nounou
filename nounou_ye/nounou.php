@@ -64,7 +64,7 @@
                     <p><a class="btn btn-secondary" href="planning.php" role="button">Aller &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
-
+</div>
 
 
 

@@ -16,7 +16,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-         <form method="post" action="getEnfant.php">
+         <form method="post" action="postEnfant.php">
             <h2>Ajoute enfant(s)</h2>
             <table>
                 <tr>
