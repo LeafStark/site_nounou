@@ -35,11 +35,7 @@ and open the template in the editor.
                     continue;
                 }
             }
-        } else {
-            echo("Vide!");
-            echo("Cliquer le lien \"Modifier la cherche\" pour le chercher");
-        }
-        if ($rowCommande['Status'] == 0) {
+             if ($rowCommande['Status'] == 0 ) {
             echo <<<STO
       <form method="post" action="evaluer.php">
             <input type="radio" name="evaluation" value="1"> 1 
@@ -55,6 +51,12 @@ STO;
         } else {
             echo("Cette commande a été évaluée");
         }
+        } else {
+            echo("Vide!<br/>");
+            echo("Cliquer le lien \"Modifier la cherche\" pour le chercher<br />");
+             echo "<a href=\"parentCherche.php\">Modifier la cherche</a>";
+        }
+       
         ?>
 
     </form>
