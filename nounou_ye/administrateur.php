@@ -37,7 +37,7 @@ and open the template in the editor.
             ?>
      
         <h1>
-            Vous êtes administrateur, vous avez 3 options：
+            Vous êtes administrateur, vous avez 4 options：
         </h1>
         <a href="validerNounou.php">
             Valider des nounous
@@ -47,6 +47,9 @@ and open the template in the editor.
         </a><br />
         <a href="librerNounou.php">
             Librer des nounous
+        </a><br />
+        <a href="chiffre_chart.php">
+            Chiffre d’affaire du site
         </a>
     </body>
 </html>
