@@ -47,7 +47,7 @@ and open the template in the editor.
             }
             ?>
             <input type="submit" value="Envoyer">
-             <a href="administrateur.php">Retour</a>
+            <a href="administrateur.php">Retour</a>
         </form>
     </body>
 </html>

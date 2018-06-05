@@ -8,15 +8,20 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+          <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <?php
         //require 'sauveParentSelection.php';
+        require_once 'navbar.html';
         require_once 'showphoto.php';
         require_once 'pdoConnexion.php';
         require_once 'calcul.php';
         session_start();
-       
+       echo "<br /><br/><br />";
         $email = $_SESSION['email'];
         $requet = "SELECT * FROM `parents_cherche` where `email` = '$email';";
 
@@ -95,5 +100,6 @@ and open the template in the editor.
             echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
         }
         ?>
+        <p><a href="parent.php">Retour</a></p>
     </body>
 </html>

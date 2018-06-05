@@ -87,12 +87,12 @@
                             <p><a class="btn btn-secondary" href="parentCherche.php" role="button">Aller &raquo;</a></p>
                         </div><!-- /.col-lg-4 -->
                         <div class="col-lg-4">
-                            <img class="rounded-circle" src="image/nounou.png" alt="Generic placeholder image" width="140" height="140">
+                            <img class="rounded-circle" src="image/nounou.jpg" alt="Generic placeholder image" width="140" height="140">
                             <h2>Nounous</h2>
                             <p><a class="btn btn-secondary" href="nounouBon.php" role="button">Aller &raquo;</a></p>
                         </div><!-- /.col-lg-4 -->
                         <div class="col-lg-4">
-                            <img class="rounded-circle" src="image/panier.jpg" alt="Generic placeholder image" width="140" height="140">
+                            <img class="rounded-circle" src="image/panier.png" alt="Generic placeholder image" width="140" height="140">
                             <h2>Commandes</h2>
                             <p><a class="btn btn-secondary" href="commandeEffectue.php" role="button">Aller &raquo;</a></p>
                         </div><!-- /.col-lg-4 -->

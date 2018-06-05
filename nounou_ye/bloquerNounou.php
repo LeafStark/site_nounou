@@ -16,9 +16,9 @@ and open the template in the editor.
 
         $requet = "select * from `compte`,`nounou`  where `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=2;";
         $resultats = $dbh->query($requet);
-        $row = $resultats->fetch();
-      // print_r($row);
-
+        var_dump($resultats);
+    
+ while ($row = $resultats->fetch()) {
          echo "<pre>";
                     echo $row['Prenom'] . " " . $row['Nom'] . "<ul>";
                     echo "<li>Age: " . $row['Age'] . "</li>";
@@ -28,7 +28,7 @@ and open the template in the editor.
                     echo"</ul>";
                     echo "Bloquer" . "<input type='checkbox' name= 'bloquer[]' value=" . $row['Email'] . ">";
                    // echo"Refuser" . "<input type='checkbox' name= 'refuser[]' value=" . $row['Email'] . ">";
-         echo "</pre>";
+ echo "</pre>";}
         ?>
             <input type="submit" value="Envoyer">
         </form>

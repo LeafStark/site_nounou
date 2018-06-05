@@ -3,10 +3,9 @@
 
 require_once 'pdoConnexion.php';
 session_start();
-$email = $_SESSION['email'];
+ $email = $_SESSION['email'];
 require_once 'getPhoto.php';
 $type_garde = $_POST['type_garde'];
-//echo  $type_garde;
 $experience = $_POST['experience'];
 $presentation = $_POST['presentation'];
 

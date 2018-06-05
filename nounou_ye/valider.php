@@ -1,9 +1,9 @@
 <?php
 
 require_once 'pdoConnexion.php';
-if(isset($_['valider'])){
+if(isset($_POST['valider'])){
 $valider = $_POST['valider'];
-
+//var_dump($valider);
 foreach ($valider as $email) {
     try {
         $query = "UPDATE `compte` SET `status`=2 WHERE `compte`.`login` = '$email';";
