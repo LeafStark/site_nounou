@@ -5,10 +5,22 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 问题：选择器不弹出
 -->
+<?php
+require_once 'navbar.html';
+?>
 <html>
     <head>
-        <script type="text/javascript" src="getEnfant.js"></script> 
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="carousel.css" rel="stylesheet">
         <title>Votre cherche</title>
 
         <link rel="stylesheet" type="text/css" href="themes/ui-lightness/jquery.ui.all.css"/>  
@@ -38,8 +50,9 @@ and open the template in the editor.
         </style>  
     </head>
     <body>
-        <form method="post" action="sauveParentSelection.php">
-            <div>
+        <br/>
+        <form method="post" action="sauveParentSelection.php" class="form-horizontal" role="form">
+            <div class="form-group">
                 <h1>
                     Je cherche un nounou:
                 </h1></br>

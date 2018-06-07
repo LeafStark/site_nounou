@@ -42,74 +42,85 @@
                     </h3>
                     <div class="mb-1 text-muted"><?php echo $row['Ville'] ?></div>
                     <p class="card-text mb-auto"><?php echo $row['Information'] ?></p>
-                    </div>
                 </div>
-                    <!--                
-                    echo("<h1>Page du " . $row['Nom_F'] . "<h1>");
-                    echo("<div>");
-                    echo "<pre>";
-                    echo "<ul>";
-                    echo "<li>Ville: " . $row['Ville'] . "</li>";
-                    echo "<li>Email: " . $row['Email'] . "</li>";
-                    echo "<li>Information: " . $row['Information'] . "</li>";
-                    echo"</ul>";
-                    //echo "Valider"."<input type='checkbox' name= 'valider[]' value=".$row['Email'].">";
-                    // echo"Refuser"."<input type='checkbox' name= 'refuser[]' value=".$row['Email'].">";
-                    echo "</pre>";
-                    echo("</div>");
-                    //print_r($rowCherche);
-                    -->
-                    <?php
-                    //保姆预存信息
-                    echo("<h1>Votre nounou cherche est: </h1>");
-                    if ($rowCherche != null) {
-                        foreach ($rowCherche as $key => $value) {
+            </div>
+            <!--                
+            echo("<h1>Page du " . $row['Nom_F'] . "<h1>");
+            echo("<div>");
+            echo "<pre>";
+            echo "<ul>";
+            echo "<li>Ville: " . $row['Ville'] . "</li>";
+            echo "<li>Email: " . $row['Email'] . "</li>";
+            echo "<li>Information: " . $row['Information'] . "</li>";
+            echo"</ul>";
+            //echo "Valider"."<input type='checkbox' name= 'valider[]' value=".$row['Email'].">";
+            // echo"Refuser"."<input type='checkbox' name= 'refuser[]' value=".$row['Email'].">";
+            echo "</pre>";
+            echo("</div>");
+            //print_r($rowCherche);
+            -->
+            <?php
+            //保姆预存信息
 
-                            if (!is_integer($key)) {
-                                echo("<div>");
-                                echo("<ul>");
-                                echo("<li>$key : $value</li>");
-                                echo("</ul>");
-                                echo("</div>");
-                                continue;
-                            }
-                        }
-                    } else {
-                        echo("Vide!");
-                        echo("Cliquer le lien \"Modifier la cherche\" pour le chercher");
+
+
+            echo("<div class='panel panel-default'>"
+            . "<div class='panel-heading'><h3 class = 'panel-title'>Votre nounou cherche est:</h3></div>"
+            . "<div class=\"panel-body\">"
+            . "   <p>Ce sont votre choix des nounous, on les prècise;<strong> le type de nunou, le jour dans la semaine, le date début et la fin, l'heure début et la fin, et votre nombre d'enfant.</strong></p>"
+            . "</div>");
+            if ($rowCherche != null) {
+                foreach ($rowCherche as $key => $value) {
+
+                    if (!is_integer($key)) {
+                        echo(" <ul class=\"list-group\">");
+                        echo("<li class=\"list-group-item\">$value</li>");
+                        echo("</ul>");
+                        /* echo("<div>");
+                          echo("<ul class='list-unstyled'>");
+                          echo("<li>$key : $value</li>");
+                          echo("</ul>");
+                          echo("</div>"); */
+                        continue;
                     }
-                    ?>
+                }
+            } else {
+                echo("Vide!");
+                echo("Cliquer le lien \"Modifier la cherche\" pour le chercher");
+            }
+            echo("</div>");
+            ?>
 
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img class="rounded-circle" src="image/dis.png" alt="Generic placeholder image" width="140" height="140">
-                            <h2>Modification</h2>
-                            <p><a class="btn btn-secondary" href="parentCherche.php" role="button">Aller &raquo;</a></p>
-                        </div><!-- /.col-lg-4 -->
-                        <div class="col-lg-4">
-                            <img class="rounded-circle" src="image/nounou.jpg" alt="Generic placeholder image" width="140" height="140">
-                            <h2>Nounous</h2>
-                            <p><a class="btn btn-secondary" href="nounouBon.php" role="button">Aller &raquo;</a></p>
-                        </div><!-- /.col-lg-4 -->
-                        <div class="col-lg-4">
-                            <img class="rounded-circle" src="image/panier.png" alt="Generic placeholder image" width="140" height="140">
-                            <h2>Commandes</h2>
-                            <p><a class="btn btn-secondary" href="commandeEffectue.php" role="button">Aller &raquo;</a></p>
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-                    <!--       
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="image/dis.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Modification</h2>
+                    <p><a class="btn btn-secondary" href="parentCherche.php" role="button">Aller &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="image/nounou.jpg" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Nounous</h2>
+                    <p><a class="btn btn-secondary" href="nounouBon.php" role="button">Aller &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="rounded-circle" src="image/panier.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Commandes</h2>
+                    <p><a class="btn btn-secondary" href="commandeEffectue.php" role="button">Aller &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+            <!--       
+            <div>
+                        <a href="parentCherche.php">Modifier la cherche</a>
+                    </div>
                     <div>
-                                <a href="parentCherche.php">Modifier la cherche</a>
-                            </div>
-                            <div>
-                                <a href="nounouBon.php">Voir les nounous je cherche</a>
-                            </div>
-                            <div>
-                                <a href='commandeEffectue.php'>Mes commandes</a>
-                            </div>
-                    -->
-                    </body>
-                    </html>
+                        <a href="nounouBon.php">Voir les nounous je cherche</a>
+                    </div>
+                    <div>
+                        <a href='commandeEffectue.php'>Mes commandes</a>
+                    </div>
+            -->
+    </body>
+</html>
 
 
 
