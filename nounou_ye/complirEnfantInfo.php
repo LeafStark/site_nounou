@@ -16,7 +16,17 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="carousel.css" rel="stylesheet">
         <title>Complir information d'enfant</title>
     </head>
     <body>
@@ -25,6 +35,7 @@ and open the template in the editor.
             session_start();
             // include 'sauveParentSelection.php';
             require_once 'pdoConnexion.php';
+             require_once 'navbar.html';
             $email = $_SESSION['email'];
             //echo $email;
             $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
@@ -33,7 +44,8 @@ and open the template in the editor.
                 //print_r($enfant);
                 $nb = $enfant['nb_enfant'];
             }
-            echo ("<div><p>Vous avez $nb enfants, completez des infomations, s'il vous plait.</p></div>");
+            echo("<br>");
+            echo ("<div><p><strong>Vous avez $nb enfants, completez des infomations, s'il vous plait.</strong></p></div>");
 
             function echoEnfant($b) {
                 

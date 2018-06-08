@@ -51,7 +51,9 @@ require_once 'navbar.html';
     </head>
     <body>
         <br/>
+        
         <form method="post" action="sauveParentSelection.php" class="form-horizontal" role="form">
+            <div class="container marketing" style="margin: 0 auto;width:500px">
             <div class="form-group">
                 <h1>
                     Je cherche un nounou:
@@ -104,5 +106,6 @@ require_once 'navbar.html';
                 <input type="submit" value="Envoyer">
             </div>
         </form>
+</div>
     </body>
 </html>

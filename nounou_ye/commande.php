@@ -6,14 +6,25 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="carousel.css" rel="stylesheet">
+        <title>Votre commande</title>
     </head>
     <body>
 
         <form method="post" action="confirmCommande.php">
             <?php
             session_start();
+            require_once 'navbar.html';
             $emailP = $_SESSION['email'];
             //echo $emailP;
             $prenomN = $_POST['prenom'];
@@ -32,8 +43,10 @@ and open the template in the editor.
                     Vous avez réussir de choisir un nounou!
                 </h1>
             </div>
-            <div>
+            <div class="container">
+                <h2>
                 Le nounou est:
+                </h2>
                 <?php
 
                 function echoCommande($a) {
@@ -54,10 +67,11 @@ and open the template in the editor.
                 ?>
             </div>
             <?php
-            echo "Le coût total est " . $money . " euro<br />";
+            echo "<p><strong>Le coût total est " . $money . " euro<br /><p><strong>";
             echo("<input type='hidden' name='heure' value='$heure'>");
             echo("<input type='hidden' name='money' value='$money'>");
             ?>
+            
             <input type="submit" value="Je confirme">
 
         </form>
