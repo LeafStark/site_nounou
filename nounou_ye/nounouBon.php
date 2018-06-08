@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-          <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -21,7 +21,7 @@ and open the template in the editor.
         require_once 'pdoConnexion.php';
         require_once 'calcul.php';
         session_start();
-       echo "<br /><br/><br />";
+        echo "<br /><br/><br />";
         $email = $_SESSION['email'];
         $requet = "SELECT * FROM `parents_cherche` where `email` = '$email';";
 
@@ -46,57 +46,72 @@ and open the template in the editor.
         //echo $rows;
         if ($rows != 0) {
             $trouver = 0;
-            for ($i = 0; $i < $rows; $i++)
-                if ($resultatN[$i]['type'] == $type) {
-                    $e = $resultatN[$i]['Email'];
-                    $requetT = "SELECT * FROM `disponibilite` where `email_nounou` = '$e';";
-                    $resT = $dbh->query($requetT);
-                    $t = $resT->fetch();
-                    //var_dump($t);
-                   // var_dump(intval(str_replace("-", "", $t['date_debut'])));
-                    //var_dump(intval(str_replace("-","",$heureDebut)));
-                    //var_dump(intval(str_replace(":","",$t['heure_fin'])));
-                    //var_dump(intval(str_replace(":","",$heureFin)));
-                    if (intval(str_replace("-", "", $t['date_debut'])) <= intval(str_replace("-", "", $dateDebut))and intval(str_replace("-", "", $t['date_fin'])) >= intval(str_replace("-", "", $dateFin))
-                            and intval(str_replace(":", "", $t['heure_debut'])) <= intval(str_replace(":", "", $heureDebut))and intval(str_replace(":", "", $t['heure_fin'])) >= intval(str_replace(":", "", $heureFin))and $jour==$t['jour']) {
-                        $trouver = 1;
-                        $prenomN = $resultatN[$i]['Prenom'];
-                        $ageN = $resultatN[$i]['Age'];
-                        $villeN = $resultatN[$i]['Ville'];
-                        $emailN = $resultatN[$i]['Email'];
-                        $portableN = $resultatN[$i]['Portable'];
-                        $experienceN = $resultatN[$i]['Experience'];
-                        show($emailN);
-                        echo("<form method='post' action='commande.php'>");
-                        echo "<pre>";
-                        echo $resultatN[$i]['Prenom'] . " " . $resultatN[$i]['Nom'] . "<ul>";
-                        echo("<input type='hidden' name='prenom' value='$prenomN']'>");
-                        echo "<li>Age: " . $resultatN[$i]['Age'] . "</li>";
-                        echo("<input type='hidden' name='age' value='$ageN']'>");
-                        echo "<li>Ville: " . $resultatN[$i]['Ville'] . "</li>";
-                        echo("<input type='hidden' name='ville' value='$villeN']'>");
-                        echo "<li>Email: " . $resultatN[$i]['Email'] . "</li>";
-                        echo("<input type='hidden' name='email' value='$emailN']'>");
-                        echo "<li>Portable: " . $resultatN[$i]['Portable'] . "</li>";
-                        echo("<input type='hidden' name='portable' value='$portableN']'>");
-                        echo "<li>Experience: " . $resultatN[$i]['Experience'] . "</li>";
-                        echo("<input type='hidden' name='experience' value='$experienceN']'>");
-                        echo"</ul>";
-                        echo "</pre>";
-                        $heure = calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin, $jour);
-                        $money = calculSalaire($heure, $type, $nb_enfant);
-                        echo("<input type='hidden' name='heure' value='$heure'>");
-                        echo("<input type='hidden' name='money' value='$money'>");
-                        echo("<input type='submit' value='Je choisis'>");
-                        echo("</form>");
+            
+            for ($i = 0; $i < $rows; $i++) {
+              
+                    if ($resultatN[$i]['type'] == $type) {
+                        $e = $resultatN[$i]['Email'];
+                        $requetT = "SELECT * FROM `disponibilite` where `email_nounou` = '$e';";
+                        $resT = $dbh->query($requetT);
+                        $t = $resT->fetch();
+                        //var_dump($t);
+                        // var_dump(intval(str_replace("-", "", $t['date_debut'])));
+                        //var_dump(intval(str_replace("-","",$heureDebut)));
+                        //var_dump(intval(str_replace(":","",$t['heure_fin'])));
+                        //var_dump(intval(str_replace(":","",$heureFin)));
+                        if (intval(str_replace("-", "", $t['date_debut'])) <= intval(str_replace("-", "", $dateDebut))and intval(str_replace("-", "", $t['date_fin'])) >= intval(str_replace("-", "", $dateFin))
+                                and intval(str_replace(":", "", $t['heure_debut'])) <= intval(str_replace(":", "", $heureDebut))and intval(str_replace(":", "", $t['heure_fin'])) >= intval(str_replace(":", "", $heureFin))and $jour == $t['jour']) {
+                            $trouver = 1;
+                            $prenomN = $resultatN[$i]['Prenom'];
+                            $ageN = $resultatN[$i]['Age'];
+                            $villeN = $resultatN[$i]['Ville'];
+                            $emailN = $resultatN[$i]['Email'];
+                            $portableN = $resultatN[$i]['Portable'];
+                            $experienceN = $resultatN[$i]['Experience'];
+                            echo "<div class='container'>";
+                              $rowDiv = ceil($i / 3);
+                for ($j = 0; $j < $rowDiv; $j++) {
+                    echo("<div class='row'>");
+                            show($emailN);
+                            echo("<div class='col-md-4'>");
+                            echo("<form method='post' action='commande.php'>");
+                            echo "<pre>";
+                            echo $resultatN[$i]['Prenom'] . " " . $resultatN[$i]['Nom'] . "<ul>";
+                            echo("<input type='hidden' name='prenom' value='$prenomN']'>");
+                            echo "<li>Age: " . $resultatN[$i]['Age'] . "</li>";
+                            echo("<input type='hidden' name='age' value='$ageN']'>");
+                            echo "<li>Ville: " . $resultatN[$i]['Ville'] . "</li>";
+                            echo("<input type='hidden' name='ville' value='$villeN']'>");
+                            echo "<li>Email: " . $resultatN[$i]['Email'] . "</li>";
+                            echo("<input type='hidden' name='email' value='$emailN']'>");
+                            echo "<li>Portable: " . $resultatN[$i]['Portable'] . "</li>";
+                            echo("<input type='hidden' name='portable' value='$portableN']'>");
+                            echo "<li>Experience: " . $resultatN[$i]['Experience'] . "</li>";
+                            echo("<input type='hidden' name='experience' value='$experienceN']'>");
+                            echo"</ul>";
+                            echo "</pre>";
+                            $heure = calculDuree($dateDebut, $dateFin, $heureDebut, $heureFin, $jour);
+                            $money = calculSalaire($heure, $type, $nb_enfant);
+                            echo("<input type='hidden' name='heure' value='$heure'>");
+                            echo("<input type='hidden' name='money' value='$money'>");
+                            echo("<input type='submit' value='Je choisis'>");
+                            echo("</form>");
+                            echo("</div>");
+                              echo("</div>");
+                               echo "</div>";
+                        }
                     }
-                }
+              
+                    
+                                }
+            }
+           
             if ($trouver == 0) {
-                echo 'Pas de nounou propre';
+                echo '<p><strong>Pas de nounou propre</p></strong>';
                 echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
             }
         } else {
-            echo 'Pas de nounou propre';
+            echo '<p><strong>Pas de nounou propre</p></strong>';
             echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
         }
         ?>
