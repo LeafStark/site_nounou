@@ -22,6 +22,7 @@ and open the template in the editor.
         $heureFin = $_POST['heureFinN'];
         $jour = $_POST['jour'];
         $nbEnfant = $_POST['enfants'];
+        
         echo $type;
         echo $heureDebut;
         echo $heureFin;
@@ -38,9 +39,10 @@ and open the template in the editor.
                 $dbh->exec($queryUp);
                 header('Location:complirEnfantInfo.php');
             } else {
-                $query = "INSERT INTO `parents_cherche`(`email`, `type_nounou`,`jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES ('$email', '$type','$jour', '$dateDebut', '$dateFin','$heureDebut','$heireFin ',$nbEnfant')";
+                $query = "INSERT INTO `parents_cherche`(`email`, `type_nounou`,`jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES ('$email', '$type','$jour', '$dateDebut', '$dateFin','$heureDebut','$heureFin ','$nbEnfant')";
 
                 $dbh->exec($query);
+                $_SESSION['nb']=$nbEnfant;
                 header('Location:complirEnfantInfo.php');
             }
         } catch (PDOException $e) {

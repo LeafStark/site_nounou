@@ -64,6 +64,7 @@ STO;
                 echo("Cette commande a été évaluée");
             }
         } else {
+            echo '<br>';
             echo("Vide!<br/>");
             echo("Cliquer le lien \"Modifier la cherche\" pour le chercher<br />");
             echo "<a href=\"parentCherche.php\">Modifier la cherche</a>";
