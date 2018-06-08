@@ -52,9 +52,10 @@ and open the template in the editor.
                 //$restrictionE;
                 echo("<br>");
                 try {
-                    $queryTest = "SELECT e.*,p.ID_P FROM `enfant` AS e,`parents` AS p WHERE `parent`=p.ID_P AND p.Email='$email'";
+                    $queryTest = "SELECT e.*,p.ID_P FROM `enfant` AS e,`parents` AS p WHERE `parent`=p.Email AND p.Email='$email'";
                     $resultTest = $dbh->query($queryTest);
                     $rowTest = $resultTest->fetch();
+                   // var_dump($rowTest);
                   //  $idP = $rowTest['parent'];
                     //print_r($rowTest);
                     if ($rowTest != null) {
@@ -65,9 +66,10 @@ and open the template in the editor.
                         $dbh->exec($deleteQ);
                         $dbh->exec($queryE);
                     } else {
+                        //echo 1;
                         $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', '$email');";
                         //$queryE = "INSERT INTO `enfant`(`Prenom`) VALUES ('ss');";
-                        $dbh->exec($queryE);
+                       $dbh->exec($queryE);
                     }
                     ?>
                     <p>Les informations d'enfant ont été enregisrées!</p>

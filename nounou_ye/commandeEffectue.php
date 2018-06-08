@@ -46,7 +46,7 @@ and open the template in the editor.
                     continue;
                 }
             }
-            var_dump($rowCommande['Status']);
+            //var_dump($rowCommande['Status']);
             if ($rowCommande['Status'] == 0) {
                 echo <<<STO
       <form method="post" action="evaluer.php">

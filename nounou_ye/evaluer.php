@@ -30,5 +30,7 @@ and open the template in the editor.
     echo 'Votre evaluation a déja été enregistrée.';
     
     ?>
+        <br />
+        <a href="parent.php">Retour</a>
     </body>
 </html>

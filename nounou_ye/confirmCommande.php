@@ -33,8 +33,9 @@ and open the template in the editor.
         $duree = $_POST['heure'];
 
         try {
-            $requete = "INSERT INTO `commande`(`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`) VALUES ('$id','$emailN','$emailP','$duree',' $salaire')";
+            $requete = "INSERT INTO `commande`(`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`,`Status`) VALUES ('$id','$emailN','$emailP','$duree','$salaire',0)";
             $resultat = $dbh->exec($requete);
+           // var_dump($resultat);
             ?>
         </br>
         <p><strong>Votre conmmande a été confirmé!</strong></p>
@@ -44,5 +45,6 @@ and open the template in the editor.
             echo $exc->getTraceAsString();
         }
         ?>
+        <a href="parent.php">Retour</a>
     </body>
 </html>

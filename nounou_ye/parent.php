@@ -64,12 +64,13 @@ echo("</div>");
 
 
 
-echo("<div class='panel panel-default'>"
+
+if ($rowCherche != null) {
+    echo("<div class='panel panel-default'>"
 . "<div class='panel-heading'><h3 class = 'panel-title'>Votre nounou cherche est:</h3></div>"
 . "<div class=\"panel-body\">"
 . " <p>Ce sont votre choix des nounous, on les prècise;<strong> le type de nunou, le jour dans la semaine, le date début et la fin, l'heure début et la fin, et votre nombre d'enfant.</strong></p>"
 . "</div>");
-if ($rowCherche != null) {
 foreach ($rowCherche as $key => $value) {
 
 if (!is_integer($key)) {
@@ -124,7 +125,7 @@ continue;
 }
 }
 } else {
-echo("Vide!");
+echo("<p>Vide!</p>");
 echo("Cliquer le lien \"Modifier la cherche\" pour le chercher");
 }
 echo("</div>");
