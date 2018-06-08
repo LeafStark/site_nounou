@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-08 13:20:32
+-- Generation Time: 2018-06-08 14:58:21
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -45,7 +45,10 @@ CREATE TABLE IF NOT EXISTS `commande` (
 
 INSERT INTO `commande` (`ID_C`, `Email_N`, `Email_P`, `Duree`, `Salaire`, `Status`) VALUES
 (2, 'xingyu.ye@utt.fr', 'mike@qq.com', 5, 45, 0),
-(1, 'sam@ch.com', 'mike@qq.com', 5, 45, 1);
+(1, 'sam@ch.com', 'mike@qq.com', 5, 45, 1),
+(3, 'sam@ch.com', 'dudu@qq.com', 18, 126, 1),
+(4, 'sam@ch.com', 'dudu@qq.com', 18, 126, 1),
+(5, 'sam@ch.com', 'dudu@qq.com', 18, 126, 1);
 
 -- --------------------------------------------------------
 
@@ -69,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
 INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 ('David@nihao.com', 'nihao', 2, 'nounou'),
 ('dqq@utt.fr', 'password', 1, 'administrateur'),
+('dudu@qq.com', 'password', 2, 'parent'),
 ('mike@qq.com', 'password', 1, 'parent'),
 ('sam@ch.com', 'nihao', 2, 'nounou'),
 ('xingyu.ye@utt.fr', 'password', 2, 'nounou'),
@@ -112,10 +116,17 @@ CREATE TABLE IF NOT EXISTS `enfant` (
   `Prenom` varchar(20) NOT NULL,
   `Date_Naissance` date NOT NULL,
   `Restriction` text NOT NULL,
-  `parent` int(11) NOT NULL,
+  `parent` varchar(11) NOT NULL,
   PRIMARY KEY (`Prenom`,`parent`),
   KEY `parent` (`parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `enfant`
+--
+
+INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES
+('qiaoqiao', '2018-01-01', 'nihao', 'dudu@qq.com');
 
 -- --------------------------------------------------------
 
@@ -147,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
 (1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience professionnelle, 1 Ã  2 ans.', 'bonjour', 3.9375, 0, 'ponctuelle'),
-(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 3, 0, 'reguliere'),
+(2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 3.75, 0, 'reguliere'),
 (3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'hello', 3, 0, 'ponctuelle');
 
 -- --------------------------------------------------------
@@ -172,7 +183,8 @@ CREATE TABLE IF NOT EXISTS `parents` (
 
 INSERT INTO `parents` (`ID_P`, `Nom_F`, `Ville`, `Email`, `Information`) VALUES
 (1, 'ye', 'dalian', '695549485@qq.com', 'hi'),
-(2, 'Mike', 'London', 'mike@qq.com', 'nihao\r\n');
+(2, 'Mike', 'London', 'mike@qq.com', 'nihao\r\n'),
+(3, 'DU', 'Xian', 'dudu@qq.com', 'hello');
 
 -- --------------------------------------------------------
 
@@ -199,7 +211,8 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
 
 INSERT INTO `parents_cherche` (`email`, `type_nounou`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
 ('du@qq.com', 'ponctuelle', '0', '2018-05-03', '2018-05-17', '00:00', '00:00', 3),
-('mike@qq.com', 'ponctuelle', 'travailler', '2018-06-01', '2018-06-06', '11:00', '15:00', 1);
+('mike@qq.com', 'ponctuelle', 'travailler', '2018-06-01', '2018-06-06', '11:00', '15:00', 1),
+('dudu@qq.com', 'reguliere', 'travailler', '2018-06-08', '2018-06-13', '11:01', '13:00 ', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
