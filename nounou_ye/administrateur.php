@@ -20,23 +20,16 @@ and open the template in the editor.
         require_once"pdoConnexion.php";
         echo"<br />";
         try {
-            $requet_nbc = "SELECT COUNT(`ID_N`) FROM `nounou` ,`compte` WHERE `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=1;";
-            $requet_nbi = "SELECT COUNT(`ID_N`) FROM `nounou` ,`compte` WHERE `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=2;";
-            $nb1 = $dbh->query($requet_nbc);
-            $nb2 = $dbh->query($requet_nbi);
-            $nb_c = $nb1->fetch();
-            $nb_i = $nb2->fetch();
-            echo"<div class='ml-2'>";
-            echo " Le nombre de nounous en attene de validation: " . $nb_c[0] . "<br />";
-            echo " Le nombre de nounous validées: " . $nb_i[0] . "<br /><br/>";
-echo "</div>";
+           
             $requet = "SELECT * FROM `nounou`,`compte` WHERE `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=1;";
             $resultats = $dbh->query($requet);
         } catch (PDOException $e) {
             die("Error!: " . $e->getMessage() . "<br/>");
         }
         ?>
-        <div class="container marketing">     
+        <div class="container marketing">  
+            </br>
+            </br>
             <h1>
                 Vous êtes administrateur, vous avez 4 options：
             </h1>
@@ -58,13 +51,13 @@ echo "</div>";
                 </div>
                 <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/chiffre.png" alt="Generic placeholder image" width="140" height="140">
-                    <h2>Chiffre d’affaire du site</h2>
+                    <h2>Chiffre d’affaire </h2>
                     <p><a class="btn btn-secondary" href="chiffre_chart.php" role="button">Aller &raquo;</a></p>
                 </div>
                 <div class="col-lg-2dot4">
-                    <img class="rounded-circle" src="image/chiffre.png" alt="Generic placeholder image" width="140" height="140">
-                    <h2>Chiffre d’affaire du site</h2>
-                    <p><a class="btn btn-secondary" href="chiffre_chart.php" role="button">Aller &raquo;</a></p>
+                    <img class="rounded-circle" src="image/infonounou.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Afficher info de nounou</h2>
+                    <p><a class="btn btn-secondary" href="nounouInfo.php" role="button">Aller &raquo;</a></p>
                 </div>
             </div>
         </div>
