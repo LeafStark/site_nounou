@@ -33,9 +33,12 @@ and open the template in the editor.
             //print_r($enfant);
             $nb = $enfant['nb_enfant'];
         }
+        else{
+            $nb = $_SESSION['nb'];
+        }
 
         $prenom = $_POST['prenom'];
-        //echo $prenom;
+       // var_dump( $prenom);
         $dateN = $_POST['dateDeNaissance'];
         $restriction = $_POST['restriction'];
 
@@ -52,17 +55,17 @@ and open the template in the editor.
                     $queryTest = "SELECT e.*,p.ID_P FROM `enfant` AS e,`parents` AS p WHERE `parent`=p.ID_P AND p.Email='$email'";
                     $resultTest = $dbh->query($queryTest);
                     $rowTest = $resultTest->fetch();
-                    $idP = $rowTest['ID_P'];
+                  //  $idP = $rowTest['parent'];
                     //print_r($rowTest);
                     if ($rowTest != null) {
-                        $deleteQ = "DELETE FROM `enfant` WHERE `parent`='$idP'";
+                        $deleteQ = "DELETE FROM `enfant` WHERE `parent`='$email'";
 
                         // INSERT INTO `enfant`(`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('a','2018-08-08','s',2)
-                        $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', $idP);";
+                        $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', '$email');";
                         $dbh->exec($deleteQ);
                         $dbh->exec($queryE);
                     } else {
-                        $queryE = "INSERT INTO `enfant`(`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', $idP);";
+                        $queryE = "INSERT INTO `enfant` (`Prenom`, `Date_Naissance`, `Restriction`, `parent`) VALUES ('$prenomE', '$date', '$restrictionE', '$email');";
                         //$queryE = "INSERT INTO `enfant`(`Prenom`) VALUES ('ss');";
                         $dbh->exec($queryE);
                     }

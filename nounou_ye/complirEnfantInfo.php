@@ -37,12 +37,16 @@ and open the template in the editor.
             require_once 'pdoConnexion.php';
              require_once 'navbar.html';
             $email = $_SESSION['email'];
+           // var_dump($_POST);
             //echo $email;
             $query = "SELECT `nb_enfant` FROM `parents_cherche` WHERE `email`='$email'";
             $resultat = $dbh->query($query);
+         
             if ($enfant = $resultat->fetch()) {
                 //print_r($enfant);
                 $nb = $enfant['nb_enfant'];
+            }else{
+                $nb=$_SESSION['nb'];
             }
             echo("<br>");
             echo ("<div><p><strong>Vous avez $nb enfants, completez des infomations, s'il vous plait.</strong></p></div>");
