@@ -44,6 +44,7 @@ and open the template in the editor.
         if ($rows != 0) {
             $trouver = 0;
             for ($i = 0; $i < $rows; $i++)
+            {
                 if ($resultatN[$i]['type'] == $type) {
                     $e = $resultatN[$i]['Email'];
                     $requetT = "SELECT * FROM `disponibilite` where `email_nounou` = '$e';";
@@ -87,7 +88,7 @@ and open the template in the editor.
                         echo("<input type='submit' value='Je choisis'>");
                         echo("</form>");
                     }
-                }
+            }}
             if ($trouver == 0) {
                 echo 'Pas de nounou propre';
                 echo("<a href='parentCherche.php'> Essayer encore une fois!</a>");
