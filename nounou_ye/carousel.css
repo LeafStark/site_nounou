@@ -89,3 +89,7 @@ body {
     margin-top: 7rem;
   }
 }
+.row {
+                height: 20px;
+                border: 2px solid black;
+            }

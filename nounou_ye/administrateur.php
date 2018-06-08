@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="carousel.css" rel="stylesheet">
+        <link href="colonne5.css" rel="stylesheet">
         <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
         <script src="popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -41,26 +41,31 @@ echo "</div>";
                 Vous êtes administrateur, vous avez 4 options：
             </h1>
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/valider.svg" alt="Generic placeholder image" width="140" height="140">
                     <h2>Valider des nounous</h2>
                     <p><a class="btn btn-secondary" href="validerNounou.php" role="button">Aller &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/bloquer.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>Bloquer des nounous</h2>
                     <p><a class="btn btn-secondary" href="bloquerNounou.php" role="button">Aller &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/debloquer.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>Débloquer des nounous</h2>
                     <p><a class="btn btn-secondary" href="librerNounou.php" role="button">Aller &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/chiffre.png" alt="Generic placeholder image" width="140" height="140">
                     <h2>Chiffre d’affaire du site</h2>
                     <p><a class="btn btn-secondary" href="chiffre_chart.php" role="button">Aller &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
+                </div>
+                <div class="col-lg-2dot4">
+                    <img class="rounded-circle" src="image/chiffre.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Chiffre d’affaire du site</h2>
+                    <p><a class="btn btn-secondary" href="chiffre_chart.php" role="button">Aller &raquo;</a></p>
+                </div>
             </div>
         </div>
     </body>
