@@ -31,8 +31,9 @@ and open the template in the editor.
             </br>
             </br>
             <h1>
-                Vous êtes administrateur, vous avez 4 options：
+                Vous êtes administrateur, vous avez 5 options：
             </h1>
+            <?php echo "<br/><br/>";?>
             <div class="row">
                 <div class="col-lg-2dot4">
                     <img class="rounded-circle" src="image/valider.svg" alt="Generic placeholder image" width="140" height="140">

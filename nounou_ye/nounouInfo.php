@@ -26,30 +26,37 @@ and open the template in the editor.
        require_once 'navbar.html';
        $requetInfo = "SELECT n.* FROM `nounou` AS n,`compte` AS c WHERE c.login=n.Email AND c.status=2;";
         $result = $dbh->query($requetInfo);
-       $rows = $result->fetch();
-      // print_r($rows);
+       
+      //print_r($rows);
        echo(" <br />"
                . "<div class=\"container marketing\">");
         
        echo("<div class='panel panel-default'>"
             . "<div class='panel-heading'><h3 class = 'panel-title'>Les infos de nounous validés sont:</h3></div>");
-            if ($rows != null) {
+       $find=0;
+            while($rows = $result->fetch()) {
+               echo"<div class=\"card  \">";
                 foreach ($rows as $key => $value) {
 
                     if (!is_integer($key)) {
+                        
+                        
                         echo(" <ul class=\"list-group\">");
                         echo $key;
                         echo("<li class=\"list-group-item\">$value</li>");
                         echo("</ul>");
+                        
                         /* echo("<div>");
                           echo("<ul class='list-unstyled'>");
                           echo("<li>$key : $value</li>");
                           echo("</ul>");
                           echo("</div>"); */
-                        continue;
+                        $find=1;
+                        
                     }
                 }
-            } else {
+                echo"</div><br /><br/>";
+            } if(!$find){
                 echo("Il n'y a pas de nounou validé.");
             }
             echo("</div>");
