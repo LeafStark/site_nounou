@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 2018-06-05 10:35:17
+-- Generation Time: 2018-06-08 13:20:32
 -- 服务器版本： 5.7.19
 -- PHP Version: 5.6.31
 
@@ -69,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `compte` (
 INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES
 ('David@nihao.com', 'nihao', 2, 'nounou'),
 ('dqq@utt.fr', 'password', 1, 'administrateur'),
-('Maxime@utt.fr', 'asd', 1, 'nounou'),
 ('mike@qq.com', 'password', 1, 'parent'),
 ('sam@ch.com', 'nihao', 2, 'nounou'),
 ('xingyu.ye@utt.fr', 'password', 2, 'nounou'),
@@ -100,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `disponibilite` (
 INSERT INTO `disponibilite` (`id_dispo`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `email_nounou`) VALUES
 (5, 'travailler', '2018-02-02', '2019-04-01', '09:00', '16:00', 'xingyu.ye@utt.fr'),
 (4, 'travailler', '2018-05-05', '2018-07-01', '10:00', '16:00', 'sam@ch.com'),
-(6, 'tous', '2018-04-01', '2018-09-01', '08:00', '17:00', 'David@nihao.com');
+(6, 'tous', '2018-05-01', '2018-09-01', '08:00', '17:00', 'David@nihao.com');
 
 -- --------------------------------------------------------
 
@@ -149,8 +148,7 @@ CREATE TABLE IF NOT EXISTS `nounou` (
 INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`, `Langue`, `Age`, `Experience`, `Presentation`, `Evaluation`, `Salaire`, `type`) VALUES
 (1, 'YE', 'Xingyu', 'Saint-germain', 'xingyu.ye@utt.fr', 767158560, 'anglais', 22, 'Experience professionnelle, 1 Ã  2 ans.', 'bonjour', 3.9375, 0, 'ponctuelle'),
 (2, 'sam', 'smith', 'paris', 'sam@ch.com', 12345678, 'anglais,francais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'nihao', 3, 0, 'reguliere'),
-(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'hello', 3, 0, 'ponctuelle'),
-(5, 'Du', 'Maxime', 'paris', 'Maxime@utt.fr', 91823812, 'francais,anglais', 20, '', '', 3, 0, '');
+(3, 'David', 'P', 'London', 'David@nihao.com', 123444444, 'anglais', 33, 'Experience familiale : garde de frÃ¨res et soeurs, cousins.', 'hello', 3, 0, 'ponctuelle');
 
 -- --------------------------------------------------------
 
@@ -200,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `parents_cherche` (
 --
 
 INSERT INTO `parents_cherche` (`email`, `type_nounou`, `jour`, `date_debut`, `date_fin`, `heure_debut`, `heure_fin`, `nb_enfant`) VALUES
-('du@qq.com', 'ponctuelle', '', '2018-05-03', '2018-05-17', '00:00', '00:00', 3),
+('du@qq.com', 'ponctuelle', '0', '2018-05-03', '2018-05-17', '00:00', '00:00', 3),
 ('mike@qq.com', 'ponctuelle', 'travailler', '2018-06-01', '2018-06-06', '11:00', '15:00', 1);
 COMMIT;
 
