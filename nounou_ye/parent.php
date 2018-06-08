@@ -74,14 +74,53 @@
 
                     if (!is_integer($key)) {
                         echo(" <ul class=\"list-group\">");
-                        echo("<li class=\"list-group-item\">$value</li>");
-                        echo("</ul>");
-                        /* echo("<div>");
-                          echo("<ul class='list-unstyled'>");
-                          echo("<li>$key : $value</li>");
-                          echo("</ul>");
-                          echo("</div>"); */
-                        continue;
+                        //echo $key;
+                        if ($key == "jour") {
+                            echo("<li class=\"list-group-item\">");
+                            switch ($value) {
+                                case "tous":
+                                    echo "Tous les jours";
+                                    break;
+                                case "travailler":
+                                    echo "Tous les jours travaillés";
+                                    break;
+                                case 0:
+                                    echo "Tous les lundi";
+                                    break;
+                                case 1:
+                                    echo "Tous les mardi";
+                                    break;
+                                case 2:
+                                    echo "Tous les mercredi";
+                                    break;
+                                case 3:
+                                    echo "Tous les jeudi";
+                                    break;
+                                case 4:
+                                    echo "Tous les vendredi";
+                                    break;
+                                case 5:
+                                    echo "Tous les samedi";
+                                    break;
+                                case 6:
+                                    echo "Tous les dimanche";
+                                    break;
+                                default:
+                                    echo "Rien";
+                            }
+                            echo "</li>";
+                        } else {
+
+
+                            echo("<li class=\"list-group-item\">$value</li>");
+                            echo("</ul>");
+                            /* echo("<div>");
+                              echo("<ul class='list-unstyled'>");
+                              echo("<li>$key : $value</li>");
+                              echo("</ul>");
+                              echo("</div>"); */
+                            continue;
+                        }
                     }
                 }
             } else {

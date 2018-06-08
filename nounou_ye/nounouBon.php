@@ -58,7 +58,7 @@ and open the template in the editor.
                     //var_dump(intval(str_replace(":","",$t['heure_fin'])));
                     //var_dump(intval(str_replace(":","",$heureFin)));
                     if (intval(str_replace("-", "", $t['date_debut'])) <= intval(str_replace("-", "", $dateDebut))and intval(str_replace("-", "", $t['date_fin'])) >= intval(str_replace("-", "", $dateFin))
-                            and intval(str_replace(":", "", $t['heure_debut'])) <= intval(str_replace(":", "", $heureDebut))and intval(str_replace(":", "", $t['heure_fin'])) >= intval(str_replace(":", "", $heureFin))) {
+                            and intval(str_replace(":", "", $t['heure_debut'])) <= intval(str_replace(":", "", $heureDebut))and intval(str_replace(":", "", $t['heure_fin'])) >= intval(str_replace(":", "", $heureFin))and $jour==$t['jour']) {
                         $trouver = 1;
                         $prenomN = $resultatN[$i]['Prenom'];
                         $ageN = $resultatN[$i]['Age'];
