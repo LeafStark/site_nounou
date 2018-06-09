@@ -32,7 +32,7 @@ and open the template in the editor.
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <br>
-                        <p><strong>Vous devez vérifier des nounous :</strong></p> 
+                        <p><strong>Vous pouvez bloquer des nounous :</strong></p> 
                         <?php
                         
                         while ($row = $resultats->fetch()) {

@@ -27,6 +27,7 @@ and open the template in the editor.
             $requet = "select * from `compte`,`nounou`  where `nounou`.`Email`=`compte`.`login` AND `compte`.`status`=0;";
             $resultats = $dbh->query($requet);
             $row = $resultats->fetch();
+            echo "<br/>";
             if (!$row) {
                 echo("</br>");
                 echo "<p></strong>Pas de nounou bloqué!</strong></p>";
@@ -43,19 +44,19 @@ and open the template in the editor.
                             echo "<li>Email: " . $row['Email'] . "</li>";
                             echo "<li>Portable: " . $row['Portable'] . "</li>";
                             echo"</ul>";
-                            echo "Librer" . "<input type='checkbox' name= 'librer[]' value=" . $row['Email'] . ">";
+                            echo "Débloquer " . "<input type='checkbox' name= 'librer[]' value=" . $row['Email'] . ">";
                             // echo"Refuser" . "<input type='checkbox' name= 'refuser[]' value=" . $row['Email'] . ">";
                             echo "</pre>";
                             echo("<input type='submit' value='Envoyer'>");
                         }
                         ?>
                     </div>
-                </div>
+                </div>   <a href="administrateur.php">Retour</a>
             </div>
 
 
 
         </form>
-        <a href="administrateur.php">Retour</a>
+     
     </body>
 </html>

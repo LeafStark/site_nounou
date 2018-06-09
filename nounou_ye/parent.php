@@ -10,9 +10,10 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="carousel.css" rel="stylesheet">
+<!--<link href="carousel.css" rel="stylesheet">-->
 </head>
 <body>
+    <br />
 <?php
 session_start();
 require_once 'pdoConnexion.php';

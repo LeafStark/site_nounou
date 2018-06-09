@@ -1,5 +1,10 @@
+<html>
+    <head><link href="css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script></head>
 <?php
-
+require_once 'navbar.html';
 require_once"pdoConnexion.php";
 require_once 'max_id.php';
 /*$requet = "select * from nounou";
@@ -29,4 +34,6 @@ try {
     die("Error!: " . $e->getMessage() . "<br/>");
 }
 $dbh = null;
-echo("Votre compte a déjà inscrit.");
+echo("<br /><br /><br />Votre compte a déjà inscrit.");?>
+    <p><a href="nounou.php">Aller!</a></p>
+</html>

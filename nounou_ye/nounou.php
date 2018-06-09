@@ -11,9 +11,10 @@
         <script src="js/bootstrap.min.js"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="carousel.css" rel="stylesheet">
+       
     </head>
     <body>
+        <br /><br/>
         <?php
         require_once 'showphoto.php';
         require_once 'pdoConnexion.php';
@@ -45,7 +46,6 @@
                 </div>
                 <img class="card-img-right flex-auto d-none d-lg-block" src="<?php addressPhoto($email);?>" alt="Card image cap">
             </div>
-
             <!-- Three columns of text below the carousel -->
             <div class="row">
                 <div class="col-lg-4">
