@@ -129,7 +129,7 @@ continue;
 echo("<p>Vide!</p>");
 echo("Cliquer le lien \"Modifier la cherche\" pour le chercher");
 }
-echo("</div>");
+
 ?>
 
 <div class="row">
@@ -149,6 +149,7 @@ echo("</div>");
 <p><a class="btn btn-secondary" href="commandeEffectue.php" role="button">Aller &raquo;</a></p>
 </div><!-- /.col-lg-4 -->
 </div><!-- /.row -->
+</div>
 <!-- 
 <div>
 <a href="parentCherche.php">Modifier la cherche</a>

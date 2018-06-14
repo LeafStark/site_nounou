@@ -28,6 +28,7 @@ try {
     $nounouQuery = "INSERT INTO `nounou` (`ID_N`, `Nom`, `Prenom`, `Ville`, `Email`, `Portable`,`Langue`, `Age`, `Experience`, `Presentation`,`Evaluation`,`Salaire`,`type`) VALUES ('$id', '$nom', '$prenom', '$ville', '$email', '$portable','$langue', $age, '', '',0,0,'');";
     $compteQuery = "INSERT INTO `compte` (`login`, `mot_de_passe`, `status`, `role`) VALUES ('$email', '$password', '1', 'nounou');";
     $dbh->exec($nounouQuery);
+    var_dump( $dbh->exec($nounouQuery));
     $dbh->exec($compteQuery);
  
 } catch (PDOException $e) {
